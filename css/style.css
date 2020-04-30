@@ -12,6 +12,9 @@ main{
 }
 
 /* ==== HOME ==== */
+.home{
+    z-index: 1000;
+}
 .home nav{
     height: 125px;
     position: sticky;
@@ -38,90 +41,165 @@ main{
 .home .material-icons:hover {
     color: #F2D9BB;
 }
-.home footer{
-    position: relative;
+footer{
+    position: sticky;
     top: 300px;
 }
-.home .page-footer{
+.page-footer{
     background-image: url(../img/backgroundfooter.png);
     background-repeat: no-repeat;
     background-size: cover;
     text-align: right;
 }
-.home .page-footer .socialtitle h5{
+.page-footer .socialtitle h5{
     font-size: 1.4rem;
     font-weight: 700;
     color: #363759;
     text-shadow: 1px 1px 1px #F2D9BB;
 }
-.home .page-footer .sociallinks ul li a{
+.page-footer .sociallinks ul li a{
     font-size: 1.3rem;
     font-weight: 600;
     list-style: none;
     color: #363759;
     text-shadow: 1px 1px 1px #F2D9BB;
 }
-.home .footer-copyright{
+.footer-copyright div{
+    font-size: 1.1rem;
+    font-weight: 500;
     text-align: right;
     color: #363759;
 }
-.home .footer-copyright div{
-    font-size: 1.1rem;
-    font-weight: 500;
-}
 
-/* CREATE PRODUTO */
-.createProduto div form{
-    width: 50%;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* ==== CREATE PRODUTO ==== */
+.createProduto{
+    margin: 20px 0;
 }
-.createProduto .tituloform{
-    margin: 20px;
-}
-.createProduto .input-field{
+.createProduto .tituloinput h5{
+    font-weight: 500;
+    color: #363759;
     margin-bottom: 20px;
 }
+body .createProduto form div{
+    margin-bottom: 20px;
+}
+.createProduto .input-field label {
+    color: #ADC5D9;
+}
+.createProduto .input-field .material-icons {
+    color: #ADC5D9;
+}
+.createProduto .file-field .material-icons {
+    color: #363759;
+}
 .createProduto .input-field input[type=text]:focus + label {
-    color: #212121;
-    font-size: 1.3rem;
+    color: #ADC5D9;
+}
+.createProduto .input-field input[type=email]:focus + label {
+    color: #ADC5D9;
+}
+.createProduto .input-field input[type=password]:focus + label {
+    color: #ADC5D9;
 }
 .createProduto .input-field input[type=text]:focus {
-    border-bottom: 1px solid #212121;
-    box-shadow: 0 1px 1px 0 #cfd8dc;
+    border-bottom: 2px solid #F29441;
+    box-shadow: 0 1px 0 0 #fafafa;
 }
-.createProduto .input-field input[type=number]:focus + label {
-    color: #212121;
-    font-size: 1.3rem;
+.createProduto .input-field input[type=email]:focus {
+    border-bottom: 2px solid #F29441;
+    box-shadow: 0 1px 0 0 #fafafa;
 }
-.createProduto .input-field input[type=number]:focus {
-    border-bottom: 1px solid #212121;
-    box-shadow: 0 1px 1px 0 #cfd8dc;
-}
-.createProduto .input-field input[type=number].valid {
-    border-bottom: 1px solid #F2D9BB;
-    box-shadow: 0 1px 1px 0 #cfd8dc;
-}
-.createProduto .input-field input[type=number].invalid {
-border-bottom: 2px solid #D9763D;
-box-shadow: 0 1px 1px 0 #cfd8dc;
-}
-.createProduto .file-field .btn{
-    background-color: #F2D9BB;
+.createProduto .input-field input[type=password]:focus {
+    border-bottom: 2px solid #F29441;
+    box-shadow: 0 1px 0 0 #fafafa;
 }
 .createProduto .input-field input[type=text].valid {
-    border-bottom: 1px solid #F2D9BB;
-    box-shadow: 0 1px 1px 0 #cfd8dc;
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 0 0 #fafafa;
 }
-.createProduto .input-field input[type=text].invalid {
-border-bottom: 2px solid #D9763D;
-box-shadow: 0 1px 1px 0 #cfd8dc;
+.createProduto .input-field input[type=email].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 0 0 #fafafa;
 }
-.createProduto .botaoenviar{
-    background-color: #F2D9BB;
-    color: #616161 ;
-    align-self: center;
-    margin-top: 20px;
+.createProduto .input-field input[type=password].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createProduto .input-field .prefix.active {
+    color: #F29441;
+}
+.createProduto .btn{
+    background-color: #ADC5D9;
+}
+.createProduto button[type=submit]{
+    color: #363759;
+}
+.createProduto .p-campo-obrg p{
+    font-size: 1rem;
+    color: #363759;
+}
+
+/* ==== CREATE USUÁRIO ==== */
+.createUsuario{
+    margin: 20px 0;
+}
+.createUsuario .tituloinput h5{
+    font-weight: 500;
+    color: #363759;
+    margin-bottom: 20px;
+}
+body .createUsuario form div{
+    margin-bottom: 20px;
+}
+.createUsuario .input-field label {
+    color: #363759;
+}
+.createUsuario .input-field .material-icons {
+    color: #363759;
+}
+.createUsuario .input-field input[type=text]:focus + label {
+    color: #363759;
+}
+.createUsuario .input-field input[type=email]:focus + label {
+    color: #363759;
+}
+.createUsuario .input-field input[type=password]:focus + label {
+    color: #363759;
+}
+.createUsuario .input-field input[type=text]:focus {
+    border-bottom: 2px solid #F29441;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createUsuario .input-field input[type=email]:focus {
+    border-bottom: 2px solid #F29441;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createUsuario .input-field input[type=password]:focus {
+    border-bottom: 2px solid #F29441;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createUsuario .input-field input[type=text].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createUsuario .input-field input[type=email].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createUsuario .input-field input[type=password].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createUsuario .input-field .prefix.active {
+    color: #F29441;
+}
+.createUsuario .btn{
+    background-color: #ADC5D9;
+}
+.createUsuario button[type=submit]{
+    color: #363759;
+}
+.createUsuario .p-campo-obrg p{
+    font-size: 1rem;
+    color: #363759;
 }
