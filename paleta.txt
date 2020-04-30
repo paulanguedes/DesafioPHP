@@ -1,0 +1,19 @@
+azul escuro
+#363759
+RGB 54, 55, 89
+
+azul claro
+#ADC5D9
+RGB 173, 197, 217
+
+bege
+#F2D9BB
+RGB 242, 217, 187
+
+laranja
+#F29441
+RGB 242, 148, 65
+
+caramelo
+#D9763D
+RGB 217, 118, 61

@@ -1,0 +1,127 @@
+*{
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+}
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main{
+    flex: 1 0 auto;
+}
+
+/* ==== HOME ==== */
+.home nav{
+    height: 125px;
+    position: sticky;
+    top: 0;
+}
+.home .brand-logo{
+    margin: 10px;
+}
+.home .nav-wrapper{
+    background-color: #363759;
+}
+.home .nav-icons{
+    position: relative;
+    top: 55px;
+    left: 60%;
+}
+.nav-icons-list{
+    background-color: #363759;
+}
+.home .material-icons{
+    color: white;
+    margin: 0 25px;
+}
+.home .material-icons:hover {
+    color: #F2D9BB;
+}
+.home footer{
+    position: relative;
+    top: 300px;
+}
+.home .page-footer{
+    background-image: url(../img/backgroundfooter.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: right;
+}
+.home .page-footer .socialtitle h5{
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #363759;
+    text-shadow: 1px 1px 1px #F2D9BB;
+}
+.home .page-footer .sociallinks ul li a{
+    font-size: 1.3rem;
+    font-weight: 600;
+    list-style: none;
+    color: #363759;
+    text-shadow: 1px 1px 1px #F2D9BB;
+}
+.home .footer-copyright{
+    text-align: right;
+    color: #363759;
+}
+.home .footer-copyright div{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* CREATE PRODUTO */
+.createProduto div form{
+    width: 50%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.createProduto .tituloform{
+    margin: 20px;
+}
+.createProduto .input-field{
+    margin-bottom: 20px;
+}
+.createProduto .input-field input[type=text]:focus + label {
+    color: #212121;
+    font-size: 1.3rem;
+}
+.createProduto .input-field input[type=text]:focus {
+    border-bottom: 1px solid #212121;
+    box-shadow: 0 1px 1px 0 #cfd8dc;
+}
+.createProduto .input-field input[type=number]:focus + label {
+    color: #212121;
+    font-size: 1.3rem;
+}
+.createProduto .input-field input[type=number]:focus {
+    border-bottom: 1px solid #212121;
+    box-shadow: 0 1px 1px 0 #cfd8dc;
+}
+.createProduto .input-field input[type=number].valid {
+    border-bottom: 1px solid #F2D9BB;
+    box-shadow: 0 1px 1px 0 #cfd8dc;
+}
+.createProduto .input-field input[type=number].invalid {
+border-bottom: 2px solid #D9763D;
+box-shadow: 0 1px 1px 0 #cfd8dc;
+}
+.createProduto .file-field .btn{
+    background-color: #F2D9BB;
+}
+.createProduto .input-field input[type=text].valid {
+    border-bottom: 1px solid #F2D9BB;
+    box-shadow: 0 1px 1px 0 #cfd8dc;
+}
+.createProduto .input-field input[type=text].invalid {
+border-bottom: 2px solid #D9763D;
+box-shadow: 0 1px 1px 0 #cfd8dc;
+}
+.createProduto .botaoenviar{
+    background-color: #F2D9BB;
+    color: #616161 ;
+    align-self: center;
+    margin-top: 20px;
+}
