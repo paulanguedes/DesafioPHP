@@ -1,3 +1,47 @@
+<?php
+// Includes
+include('../includes/functions.php');
+
+// Valores padrões
+$produto = '';
+$descricao = '';
+$preco = '';
+
+// Variáveis de controle de erro
+$produtoOk = true;
+$descricaoOK = true;
+$precoOk = true;
+
+// Verificar se o usuário enviou o formulário
+if($_POST){
+
+  // Guardando o valor dado na variável
+  $produto = $_POST['produto'];
+  $descricao = $_POST['descricao'];
+  $preco = $_POST['preco'];
+  $foto = $_POST['foto'];
+
+  // Verificar se $_FILES recebeu algum valor
+  if($_FILES){
+
+    // Separando informações úteis do $_FILES
+    $tmpName = $_FILES['foto']['tmp_name'];
+    $fileName = uniqid().'-'.$_FILES['foto']['name'];
+    $error = $_FILES['foto']['error'];
+
+    // Salvar o arquivo numa pasta do meu sistema
+    move_uploaded_file($tmpName,'../img/produtos/'.$fileName);
+
+    // Salvar o nome do arquivo em $imagem
+    $foto ='../img/produtos/'.$fileName;
+
+  } else {
+    $foto = null;
+  }
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,19 +80,19 @@
       <!-- Campo do nome -->
       <div class="input-field col s6">
         <i class="material-icons prefix">cake</i>
-        <input id="icon_prefix" type="text" class="validate">
+        <input id="icon_prefix" name="produto" type="text" class="validate">
         <label for="icon_prefix">produto</label>
       </div>
       <!-- Campo de descrição -->
       <div class="input-field col s6">
         <i class="material-icons prefix">description</i>
-        <input id="icon_prefix" type="text" class="validate">
+        <input id="icon_prefix" name="descricao" type="text" class="validate">
         <label for="icon_prefix">descrição</label>
       </div>
       <!-- Campo de preço -->
       <div class="input-field col s6">
         <i class="material-icons prefix">local_offer</i>
-        <input id="icon_prefix" type="number" class="validate">
+        <input id="icon_prefix" name="preco" type="number" class="validate">
         <label for="icon_prefix">preço</label>
       </div>
       <!-- Campo de foto -->
@@ -58,7 +102,7 @@
           <input type="file">
         </div>
         <div class="file-path-wrapper">
-          <input class="file-path validate" type="text" placeholder=" adicione fotos do produto">
+          <input class="file-path validate" name="foto" type="text" placeholder=" adicione fotos do produto">
         </div>
       </div>
       <!-- Botão de envio do formulário -->

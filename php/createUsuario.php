@@ -1,5 +1,4 @@
 <?php
-
 // Includes
 include('../includes/functions.php');
 
@@ -18,29 +17,28 @@ $confirmOK = true;
 // Verificar se o usuário enviou o formulário
 if($_POST){
 
-    // Guardando o valor dado na variável
-    $name = $_POST['name'];
-    $password = $_POST['password'];
-    $confirm = $_POST['confirm'];
-    $email = $_POST['email'];
+  // Guardando o valor dado na variável
+  $name = $_POST['name'];
+  $password = $_POST['password'];
+  $confirm = $_POST['confirm'];
+  $email = $_POST['email'];
 
-    // Verificar se $_FILES recebeu algum valor
-    if($_FILES){
+  // Verificar se $_FILES recebeu algum valor
+  if($_FILES){
 
-        // Separando informações úteis do $_FILES
-        $tmpName = $_FILES['file']['tmp_name'];
-        $fileName = uniqid().'-'.$_FILES['file']['name'];
-        $error = $_FILES['file']['error'];
+    // Separando informações úteis do $_FILES
+    $tmpName = $_FILES['file']['tmp_name'];
+    $fileName = uniqid().'-'.$_FILES['file']['name'];
+    $error = $_FILES['file']['error'];
 
-        // Salvar o arquivo numa pasta do meu sistema
-        move_uploaded_file($tmpName,'../img/usuarios/'.$fileName);
+    // Salvar o arquivo numa pasta do meu sistema
+    move_uploaded_file($tmpName,'../img/imgUsuarios/'.$fileName);
 
-        // Salvar o nome do arquivo em $imagem
-        $file ='../img/usuarios/imgUsuarios/'.$fileName;
-
-      } else {
-        $file = null;
-      }
+    // Salvar o nome do arquivo em $imagem
+    $file ='../img/imgUsuarios/'.$fileName;
+    } else {
+      $file = null;
+    }
     
     // Validando o nome
     if( strlen($_POST['name']) < 5){
