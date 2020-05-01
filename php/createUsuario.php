@@ -54,9 +54,9 @@ if($_POST){
 
     // Validando o email
     if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-      $emailOK = true;
-      }else{
-        $emailOK = false;
+      echo "";
+    } else {
+        echo "E-mail inválido";
       }
 
     // Validando senha
@@ -124,28 +124,27 @@ if($_POST){
         <i class="material-icons prefix">face</i>
         <input name="name" id="icon_prefix" type="text" class="validate">
         <label for="icon_prefix">Nome completo</label>
-        <?=($nameOk?'':'<span class="erro">Campo obrigatório</span>');?>
+        <?=($nameOk?'':"<span class='error'> Campo obrigatório </span>");?>
       </div>
       <!-- Campo de email -->
       <div class="input-field col s6">
         <i class="material-icons prefix">email</i>
         <input name="email" id="icon_prefix" type="email" class="validate">
         <label for="icon_prefix">E-mail</label>
-        <?=($emailOk?'':'<span class="erro">Campo obrigatório</span>');?>
       </div>
       <!-- Campo de senha -->
       <div class="input-field col s6">
         <i class="material-icons prefix">security</i>
         <input name="password" id="icon_prefix" type="password" class="validate">
         <label for="icon_prefix">Senha</label>
-        <?=($passwordOk?'':'<span class="erro">Senha inválida. Deve ter no mínimo 6 caracteres.</span>');?>
+        <?=($passwordOk?'':"<span class='error'>Senha inválida. Deve ter no mínimo 6 caracteres.</span>");?>
       </div>
       <!-- Campo de confirmação de senha -->
       <div class="input-field col s6">
         <i class="material-icons prefix">verified_user</i>
         <input name="confirm" id="icon_prefix" type="password" class="validate">
         <label for="icon_prefix">Confirmação de senha</label>
-        <?=($confirmOk?'':'<span class="erro">A confirmação não está igual a senha digitada.</span>');?>
+        <?=($confirmOk?'':"<span class='error'>A confirmação não está igual a senha digitada.</span>");?>
       </div>
       <!-- Campo de foto -->
       <div class="file-field input-field">
