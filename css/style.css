@@ -76,6 +76,20 @@ footer{
     color: #363759;
 }
 
+/* ==== PRINCIPAL ==== */
+.principal h5{
+    margin: 30px 0;
+    color: #363759;
+    font-weight: 500;
+    font-size: 2rem;
+}
+.principal p{
+    margin: 30px 0;
+    color: #616161;
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
 /* ==== LOGIN ==== */
 #paginalogin{
     background-image: url(../img/backgroundlogin.png);

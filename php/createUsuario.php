@@ -1,9 +1,90 @@
+<?php
+
+// Includes
+include('../includes/functions.php');
+
+// Valores padrões
+$nome = '';
+$endereco = '';
+$senha = '';
+$confirmacao = '';
+
+// Variáveis de controle de erro
+$nomeOk = true;
+$enderecoOk = true;
+$senhaOk = true;
+
+// Testando a $_FILES
+// echo "<pre>";
+// print_r($_FILES);
+// echo "</pre>";
+
+// Verificar se o usuário enviou o formulário
+if($_POST){
+
+    // Guardando o nome em $nome
+    $nome = $_POST['nome'];
+    $endereco = $_POST['endereco'];
+    $senha = $_POST['senha'];
+    $confirmacao = $_POST['confirmacao'];
+    $telefone = $_POST['telefone'];
+    $email = $_POST['email'];
+
+    // Verificar se $_FILES está vindo
+    if($_FILES){
+
+        // Separando informações uteiis do $_FILES
+        $tmpName = $_FILES['foto']['tmp_name'];
+        $fileName = uniqid() . '-' . $_FILES['foto']['name'];
+        $error = $_FILES['foto']['error'];
+
+        // Salvar o arquivo numa pasta do meu sistema
+        move_uploaded_file($tmpName,'../img/usuarios/'.$fileName);
+
+        // Salvar o nome do arquivo em $imagem
+        $imagem ='../img/usuarios/'.$fileName;
+
+    } else {
+        $imagem = null;
+    }
+    
+    // Validando o nome
+    if( strlen($_POST['nome']) < 5){
+        $nomeOk = false;
+    }
+
+    // Validando o endereço
+    if( strlen($endereco) < 20 ){
+        $enderecoOk = false;
+    }
+
+    // Validando senha
+    if(strlen($senha) < 5 || $senha != $confirmacao){
+        $senhaOk = false;
+    }
+
+    // Se tudo estiver ok, salva o usuário e redireciona para 
+    // um dado endereço
+    if($senhaOk && $nomeOk && $enderecoOk){
+
+        // Salvando o usuário novo
+        addUsuario($nome, $telefone, $email, $endereco, $senha, $imagem);
+
+        // Redirecionando usuário para a lista de usuários
+        header('location: list-usuarios.php');
+
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Criar usuário</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" />
     <link rel="stylesheet" href="../css/style.css">
@@ -16,14 +97,15 @@
         <a href="#!" class="brand-logo"><img width="100px" src="../img/Logo2.png" alt="Logo do site"></a>
         <div class="nav-icons">
           <ul class="nav-icons-list tabs right hide-on-med-and-down">
-            <li class="icon-name tab col s3 tooltipped"><a href="./indexProdutos.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="I am a tooltip">view_module</i></a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="./createProduto.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="I am a tooltip">library_add</i></a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="./createUsuario.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="I am a tooltip">person_add</i></a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="./login.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="I am a tooltip">face</i></a></li>
+            <li class="icon-name tab col s3 tooltipped"><a href="./indexProdutos.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="lista de produtos">view_module</i>Hover me!</a></li>
+            <li class="icon-name tab col s3 tooltipped"><a href="./createProduto.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="novo produto">library_add</i>Hover me!</a></li>
+            <li class="icon-name tab col s3 tooltipped"><a href="./createUsuario.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="novo usuário">person_add</i>Hover me!</a></li>
+            <li class="icon-name tab col s3 tooltipped"><a href="./login.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="encerrar sessão">face</i></a></li>
           </ul>
         </div>
       </div>
-  </nav>
+    </nav>
+  </div>
 
   <section class="createUsuario">
     <!-- Título da página -->
@@ -31,7 +113,7 @@
         <h5 class="center">novo usuário</h5>
     </div>
 
-    <form class="container">
+    <form class="container" action="../json/usuarios.json" method="post">
       <!-- Campo do nome -->
       <div class="input-field col s6">
         <i class="material-icons prefix">face</i>
