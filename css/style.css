@@ -261,3 +261,17 @@ body .createUsuario form div{
 .createUsuario button[type=submit]{
     color: #363759;
 }
+
+/* ==== CADASTRO USUARIO SUCESSO ==== */
+.usuarioOK{
+    height: 500px;
+    background-image: url(../img/fada.png);
+    background-repeat: no-repeat;
+    background-size: 300px;
+}
+.usuarioOK h6{
+    font-size: 1.8rem;
+    font-weight: lighter;
+    color: #363759;
+    margin-top: 150px;
+}

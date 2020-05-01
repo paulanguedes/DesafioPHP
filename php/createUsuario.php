@@ -15,11 +15,6 @@ $emailOK = true;
 $passwordOk = true;
 $confirmOK = true;
 
-// Testando a $_FILES
-// echo "<pre>";
-// print_r($_FILES);
-// echo "</pre>";
-
 // Verificar se o usuário enviou o formulário
 if($_POST){
 
@@ -70,18 +65,15 @@ if($_POST){
     }
 
     // Se tudo estiver ok, salva o usuário e redireciona para um endereço
-    if($nomeOk && $emailOk && $senhaOk && $confirmOK){
+    if($nameOk && $emailOk && $passwordOk && $confirmOK){
 
         // Salvando o usuário novo
         addUsuario($name, $email, $password, $confirm, $file);
 
         // Redirecionando usuário para a lista de usuários
-        header('location: usuarios.php');
-
+        header('location: listUsuarios.php');
     }
-
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -118,7 +110,7 @@ if($_POST){
         <h5 class="center">novo usuário</h5>
     </div>
 
-    <form class="container" action="" method="post">
+    <form class="container" action="listUsuarios.php" target="_SELF" method="post">
       <!-- Campo do nome -->
       <div class="input-field col s6">
         <i class="material-icons prefix">face</i>
@@ -144,7 +136,6 @@ if($_POST){
         <i class="material-icons prefix">verified_user</i>
         <input name="confirm" id="icon_prefix" type="password" class="validate">
         <label for="icon_prefix">Confirmação de senha</label>
-        <?=($confirmOk?'':"<span class='error'>A confirmação não está igual a senha digitada.</span>");?>
       </div>
       <!-- Campo de foto -->
       <div class="file-field input-field">

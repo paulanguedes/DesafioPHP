@@ -15,12 +15,12 @@ function carregaUsuarios(){
 /**
  * Adiciona um novo usuário no arquivo usuarios.json
  */
-function addUsuario($nome, $telefone, $email, $endereço, $senha, $imagem){
+function addUsuario($name, $email, $password, $confirm, $file){
     //carrega usuarios usando a função anterior
     $usuarios = carregaUsuarios();
     
     //cria um array associativo $u com os dados passados por parâmetro
-    $u = ['nome'=>$nome, 'telefone'=>$telefone, 'email'=>$email, 'endereço'=>$endereço, 'senha'=>$senha, 'imagem'=>$imagem];
+    $u = ['nome'=>$name, 'email'=>$email, 'password'=>$password, 'confirm'=>$confirm, 'file'=>$file];
 
     //adiciona $u ao final do array
     $usuarios[]= $u;
@@ -32,7 +32,7 @@ function addUsuario($nome, $telefone, $email, $endereço, $senha, $imagem){
     // se tiver, salva no arquivo usuarios.json
     if($stringjson){
         //salva a string json no arquivo usuarios.json
-        file_put_contents('../includes/usuarios.json', $stringjson);
+        file_put_contents('../json/usuarios.json', $stringjson);
     }
     
 }
