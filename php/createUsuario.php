@@ -4,15 +4,16 @@
 include('../includes/functions.php');
 
 // Valores padrões
-$nome = '';
-$endereco = '';
-$senha = '';
-$confirmacao = '';
+$name = '';
+$email = '';
+$password = '';
+$confirm = '';
 
 // Variáveis de controle de erro
-$nomeOk = true;
-$enderecoOk = true;
-$senhaOk = true;
+$nameOk = true;
+$emailOK = true;
+$passwordOk = true;
+$confirmOK = true;
 
 // Testando a $_FILES
 // echo "<pre>";
@@ -22,56 +23,60 @@ $senhaOk = true;
 // Verificar se o usuário enviou o formulário
 if($_POST){
 
-    // Guardando o nome em $nome
-    $nome = $_POST['nome'];
-    $endereco = $_POST['endereco'];
-    $senha = $_POST['senha'];
-    $confirmacao = $_POST['confirmacao'];
-    $telefone = $_POST['telefone'];
+    // Guardando o valor dado na variável
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $confirm = $_POST['confirm'];
     $email = $_POST['email'];
 
-    // Verificar se $_FILES está vindo
+    // Verificar se $_FILES recebeu algum valor
     if($_FILES){
 
-        // Separando informações uteiis do $_FILES
-        $tmpName = $_FILES['foto']['tmp_name'];
-        $fileName = uniqid() . '-' . $_FILES['foto']['name'];
-        $error = $_FILES['foto']['error'];
+        // Separando informações úteis do $_FILES
+        $tmpName = $_FILES['file']['tmp_name'];
+        $fileName = uniqid().'-'.$_FILES['file']['name'];
+        $error = $_FILES['file']['error'];
 
         // Salvar o arquivo numa pasta do meu sistema
         move_uploaded_file($tmpName,'../img/usuarios/'.$fileName);
 
         // Salvar o nome do arquivo em $imagem
-        $imagem ='../img/usuarios/'.$fileName;
+        $file ='../img/usuarios/imgUsuarios/'.$fileName;
 
-    } else {
-        $imagem = null;
-    }
+      } else {
+        $file = null;
+      }
     
     // Validando o nome
-    if( strlen($_POST['nome']) < 5){
-        $nomeOk = false;
+    if( strlen($_POST['name']) < 5){
+        $nameOk = false;
     }
 
-    // Validando o endereço
-    if( strlen($endereco) < 20 ){
-        $enderecoOk = false;
-    }
+    // Validando o email
+    if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+      $emailOK = true;
+      }else{
+        $emailOK = false;
+      }
 
     // Validando senha
-    if(strlen($senha) < 5 || $senha != $confirmacao){
-        $senhaOk = false;
+    if(strlen($password) < 6){
+        $passwordOk = false;
     }
 
-    // Se tudo estiver ok, salva o usuário e redireciona para 
-    // um dado endereço
-    if($senhaOk && $nomeOk && $enderecoOk){
+    //Validando confirmação de senha
+    if ($password != $confirm) {
+      $confirmOk = false;
+    }
+
+    // Se tudo estiver ok, salva o usuário e redireciona para um endereço
+    if($nomeOk && $emailOk && $senhaOk && $confirmOK){
 
         // Salvando o usuário novo
-        addUsuario($nome, $telefone, $email, $endereco, $senha, $imagem);
+        addUsuario($name, $email, $password, $confirm, $file);
 
         // Redirecionando usuário para a lista de usuários
-        header('location: list-usuarios.php');
+        header('location: usuarios.php');
 
     }
 
@@ -113,30 +118,34 @@ if($_POST){
         <h5 class="center">novo usuário</h5>
     </div>
 
-    <form class="container" action="../json/usuarios.json" method="post">
+    <form class="container" action="" method="post">
       <!-- Campo do nome -->
       <div class="input-field col s6">
         <i class="material-icons prefix">face</i>
-        <input id="icon_prefix" type="text" class="validate">
-        <label for="icon_prefix">Nome completo*</label>
+        <input name="name" id="icon_prefix" type="text" class="validate">
+        <label for="icon_prefix">Nome completo</label>
+        <?=($nameOk?'':'<span class="erro">Campo obrigatório</span>');?>
       </div>
       <!-- Campo de email -->
       <div class="input-field col s6">
         <i class="material-icons prefix">email</i>
-        <input id="icon_prefix" type="email" class="validate">
-        <label for="icon_prefix">E-mail*</label>
+        <input name="email" id="icon_prefix" type="email" class="validate">
+        <label for="icon_prefix">E-mail</label>
+        <?=($emailOk?'':'<span class="erro">Campo obrigatório</span>');?>
       </div>
       <!-- Campo de senha -->
       <div class="input-field col s6">
         <i class="material-icons prefix">security</i>
-        <input id="icon_prefix" type="password" class="validate">
+        <input name="password" id="icon_prefix" type="password" class="validate">
         <label for="icon_prefix">Senha</label>
+        <?=($passwordOk?'':'<span class="erro">Senha inválida. Deve ter no mínimo 6 caracteres.</span>');?>
       </div>
       <!-- Campo de confirmação de senha -->
       <div class="input-field col s6">
         <i class="material-icons prefix">verified_user</i>
-        <input id="icon_prefix" type="password" class="validate">
+        <input name="confirm" id="icon_prefix" type="password" class="validate">
         <label for="icon_prefix">Confirmação de senha</label>
+        <?=($confirmOk?'':'<span class="erro">A confirmação não está igual a senha digitada.</span>');?>
       </div>
       <!-- Campo de foto -->
       <div class="file-field input-field">
@@ -145,22 +154,17 @@ if($_POST){
           <input type="file">
         </div>
         <div class="file-path-wrapper">
-          <input class="file-path validate" type="text" placeholder=" foto do usuário">
+          <input class="file-path validate" type="text" placeholder=" foto do usuário" accept=".jpg,.jpeg,.png,.gif">
         </div>
       </div>
-      <!-- Aviso de campo obrigatório -->
-      <div class="p-campo-obrg">
-        <p>* Campos obrigatórios</p>
-      </div>
+
       <!-- Botão de envio do formulário -->
       <div class="center">
         <button class="btn waves-effect waves-light" type="submit" name="action">Criar
           <i class="material-icons right">send</i>
         </button>
       </div>
-      
-
-
+  
     </form>
 
   </section>

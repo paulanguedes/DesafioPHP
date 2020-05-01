@@ -261,7 +261,3 @@ body .createUsuario form div{
 .createUsuario button[type=submit]{
     color: #363759;
 }
-.createUsuario .p-campo-obrg p{
-    font-size: 1rem;
-    color: #363759;
-}
