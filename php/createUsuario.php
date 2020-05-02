@@ -1,76 +1,26 @@
 <?php
-// Includes
-include('../includes/functions.php');
+// ==GUARDANDO DADOS DIGITADOS EM VARIÁVEIS ==
+$nome = $_POST['nome'];
+$email = $_POST['email'];
+$senha = $_POST['senha'];
+$confirmacao = $_POST['confirmacao'];
+$fotousuario = $_POST['fotousuario'];
 
-// Valores padrões
-$name = '';
-$email = '';
-$password = '';
-$confirm = '';
-
-// Variáveis de controle de erro
-$nameOk = true;
-$emailOK = true;
-$passwordOk = true;
-$confirmOK = true;
-
-// Verificar se o usuário enviou o formulário
-if($_POST){
-
-  // Guardando o valor dado na variável
-  $name = $_POST['name'];
-  $password = $_POST['password'];
-  $confirm = $_POST['confirm'];
-  $email = $_POST['email'];
-
-  // Verificar se $_FILES recebeu algum valor
-  if($_FILES){
-
-    // Separando informações úteis do $_FILES
-    $tmpName = $_FILES['file']['tmp_name'];
-    $fileName = uniqid().'-'.$_FILES['file']['name'];
-    $error = $_FILES['file']['error'];
-
-    // Salvar o arquivo numa pasta do meu sistema
-    move_uploaded_file($tmpName,'../img/imgUsuarios/'.$fileName);
-
-    // Salvar o nome do arquivo em $imagem
-    $file ='../img/imgUsuarios/'.$fileName;
-    } else {
-      $file = null;
-    }
-    
-    // Validando o nome
-    if( strlen($_POST['name']) < 5){
-        $nameOk = false;
-    }
-
-    // Validando o email
-    if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-      echo "";
-    } else {
-        echo "E-mail inválido";
-      }
-
-    // Validando senha
-    if(strlen($password) < 6){
-        $passwordOk = false;
-    }
-
-    //Validando confirmação de senha
-    if ($password != $confirm) {
-      $confirmOk = false;
-    }
-
-    // Se tudo estiver ok, salva o usuário e redireciona para um endereço
-    if($nameOk && $emailOk && $passwordOk && $confirmOK){
-
-        // Salvando o usuário novo
-        addUsuario($name, $email, $password, $confirm, $file);
-
-        // Redirecionando usuário para a lista de usuários
-        header('location: listUsuarios.php');
-    }
+// === VALIDANDO OS CAMPOS == 
+// -- VALIDANDO NOME --
+if (empty($nome)) {
+  echo "Psiu! Precisamos do nome.";
+}
+if (strlen($nome)<3 || strlen($nome)>40) {
+  echo "Acho que você digitou o nome errado.";
+}
+// -- VALIDANDO SENHA --
+if (strlen($senha)<6) {
+  echo "A senha deve ter mais de 6 caracteres.";
+}
+// -- VALIDANDO CONFIRMAÇÃO --
+if ($senha !== $confirmacao) {
+  echo "Opa! A confirmação está diferente da senha.";
 }
 ?>
 
@@ -112,9 +62,8 @@ if($_POST){
       <!-- Campo do nome -->
       <div class="input-field col s6">
         <i class="material-icons prefix">face</i>
-        <input name="name" id="icon_prefix" type="text" class="validate">
+        <input name="nome" id="icon_prefix" type="text" class="validate">
         <label for="icon_prefix">Nome completo</label>
-        <?=($nameOk?'':"<span class='error'> Campo obrigatório </span>");?>
       </div>
       <!-- Campo de email -->
       <div class="input-field col s6">
@@ -125,15 +74,13 @@ if($_POST){
       <!-- Campo de senha -->
       <div class="input-field col s6">
         <i class="material-icons prefix">security</i>
-        <input name="password" id="icon_prefix" type="password" class="validate">
+        <input name="senha" id="icon_prefix" type="password" class="validate">
         <label for="icon_prefix">Senha</label>
-        <?=($passwordOk?'':"<span class='error'>Senha inválida. Deve ter no mínimo 6 caracteres.</span>");?>
       </div>
       <!-- Campo de confirmação de senha -->
       <div class="input-field col s6">
         <i class="material-icons prefix">verified_user</i>
-        <input name="confirm" id="icon_prefix" type="password" class="validate">
-        <label for="icon_prefix">Confirmação de senha</label>
+        <input name="confirmacao" id="icon_prefix" type="password" class="validate">
       </div>
       <!-- Campo de foto -->
       <div class="file-field input-field">
@@ -142,7 +89,7 @@ if($_POST){
           <input type="file">
         </div>
         <div class="file-path-wrapper">
-          <input class="file-path validate" type="text" placeholder=" foto do usuário" accept=".jpg,.jpeg,.png,.gif">
+          <input class="file-path validate" name="fotousuario" type="text" placeholder=" foto do usuário" accept=".jpg,.jpeg,.png,.gif">
         </div>
       </div>
 

@@ -1,44 +1,18 @@
 <?php
-// Includes
-include('../includes/functions.php');
+// ==GUARDANDO DADOS DIGITADOS EM VARIÁVEIS ==
+$produto = $_POST['produto'];
+$descricao = $_POST['descricao'];
+$preco = $_POST['preco'];
+$foto = $FILE['foto'];
 
-// Valores padrões
-$produto = '';
-$descricao = '';
-$preco = '';
-
-// Variáveis de controle de erro
-$produtoOk = true;
-$descricaoOK = true;
-$precoOk = true;
-
-// Verificar se o usuário enviou o formulário
-if($_POST){
-
-  // Guardando o valor dado na variável
-  $produto = $_POST['produto'];
-  $descricao = $_POST['descricao'];
-  $preco = $_POST['preco'];
-  $foto = $_POST['foto'];
-
-  // Verificar se $_FILES recebeu algum valor
-  if($_FILES){
-
-    // Separando informações úteis do $_FILES
-    $tmpName = $_FILES['foto']['tmp_name'];
-    $fileName = uniqid().'-'.$_FILES['foto']['name'];
-    $error = $_FILES['foto']['error'];
-
-    // Salvar o arquivo numa pasta do meu sistema
-    move_uploaded_file($tmpName,'../img/produtos/'.$fileName);
-
-    // Salvar o nome do arquivo em $imagem
-    $foto ='../img/produtos/'.$fileName;
-
-  } else {
-    $foto = null;
-  }
-
+// === VALIDANDO OS CAMPOS == 
+// -- VALIDANDO NOME DO PRODUTO --
+if (empty($produto)) {
+  echo "Ops! Como vamos chamar produto?";
+}
+// -- VALIDANDO FOTO --
+if (empty($foto)) {
+  echo "Queremos uma foto!";
 }
 ?>
 
@@ -76,7 +50,7 @@ if($_POST){
         <h5 class="center">novo produto</h5>
     </div>
 
-    <form class="container">
+    <form class="container" action="../json/produtos.json" target="_SELF" method="post">
       <!-- Campo do nome -->
       <div class="input-field col s6">
         <i class="material-icons prefix">cake</i>
