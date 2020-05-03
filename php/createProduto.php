@@ -54,7 +54,7 @@ if (empty($foto)) {
         <h5 class="center">novo produto</h5>
     </div>
 
-    <form class="container" action="../json/produtos.json" target="_SELF" method="post">
+    <form class="container" action="../json/usuarios.json" method="POST" enctype="multipart/form-data">
       <!-- Campo do nome -->
       <div class="input-field col s6">
         <i class="material-icons prefix">cake</i>

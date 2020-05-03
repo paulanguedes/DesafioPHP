@@ -39,7 +39,7 @@ if($_POST){
   if ($nome_OK && $email_OK && $senha_OK && $confirmacao_OK) {
     // -- SALVANDO O NOVO USUÁRIO --
     novoUsuario($nome, $email, $senha, $confirmacao, $fotousuario);
-    header('location: sucessoLogin.php');
+    header('location: ../json/usuarios.json');
   }
 
 } 
@@ -79,7 +79,7 @@ if($_POST){
         <h5 class="center">novo usuário</h5>
     </div>
 
-    <form class="container" method="post">
+    <form class="container" method="post" enctype="multipart/form-data">
       <!-- Campo do nome -->
       <div class="input-field col s6">
         <i class="material-icons prefix">face</i>
