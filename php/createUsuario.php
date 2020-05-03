@@ -1,27 +1,48 @@
 <?php
-// ==GUARDANDO DADOS DIGITADOS EM VARIÁVEIS ==
+include('functions.php');
+
+// == GUARDANDO DADOS DIGITADOS EM VARIÁVEIS ==
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confirmacao = $_POST['confirmacao'];
 $fotousuario = $_POST['fotousuario'];
 
+// == CRIANDO VARIÁVEIS DE CONTROLE DE ERRO ==
+$nome_OK = true;
+$email_OK = true;
+$senha_OK = true;
+$confirmacao_OK = true;
+
 // === VALIDANDO OS CAMPOS == 
-// -- VALIDANDO NOME --
-if (empty($nome)) {
-  echo "Psiu! Precisamos do nome.";
-}
-if (strlen($nome)<3 || strlen($nome)>40) {
-  echo "Acho que você digitou o nome errado.";
-}
-// -- VALIDANDO SENHA --
-if (strlen($senha)<6) {
-  echo "A senha deve ter mais de 6 caracteres.";
-}
-// -- VALIDANDO CONFIRMAÇÃO --
-if ($senha !== $confirmacao) {
-  echo "Opa! A confirmação está diferente da senha.";
-}
+
+if($_POST){
+  // -- VALIDANDO NOME --  
+  if (empty($nome)) {
+    $nome_OK = false;
+  }
+  if (strlen($nome)<3 || strlen($nome)>40) {
+    $nome_OK = false;
+  }
+  if (empty($email)) {
+    $email_OK = false;
+  }
+  // -- VALIDANDO SENHA --
+  if (strlen($senha)<6) {
+    $senha_OK = false;
+  }
+  // -- VALIDANDO CONFIRMAÇÃO --
+  if ($senha !== $confirmacao) {
+    $confirmacao_OK = false;
+  }
+  // -- SE ESTIVER TUDO VALIDADO, DIRECIONAR A UMA PÁGINA --
+  if ($nome_OK && $email_OK && $senha_OK && $confirmacao_OK) {
+    // -- SALVANDO O NOVO USUÁRIO --
+    novoUsuario($nome, $email, $senha, $confirmacao, $fotousuario);
+    header('location: sucessoLogin.php');
+  }
+
+} 
 ?>
 
 <!DOCTYPE html>

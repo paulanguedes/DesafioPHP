@@ -10,6 +10,10 @@ $foto = $FILE['foto'];
 if (empty($produto)) {
   echo "Ops! Como vamos chamar produto?";
 }
+// -- VALIDANDO PREÇO --
+if (!is_numeric($preco)) {
+  echo "O-Oh! O preço precisa ser um número."
+}
 // -- VALIDANDO FOTO --
 if (empty($foto)) {
   echo "Queremos uma foto!";
