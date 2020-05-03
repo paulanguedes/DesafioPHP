@@ -79,29 +79,34 @@ if($_POST){
         <h5 class="center">novo usuário</h5>
     </div>
 
-    <form class="container" action="listUsuarios.php" target="_SELF" method="post">
+    <form class="container" method="post">
       <!-- Campo do nome -->
       <div class="input-field col s6">
         <i class="material-icons prefix">face</i>
         <input name="nome" id="icon_prefix" type="text" class="validate">
-        <label for="icon_prefix">Nome completo</label>
+        <?= ($nome_OK ? '' : '<span class="erro">Opa! Não esquece do nome com mais de três letras.</span>'); ?>
+        <label for="icon_prefix">nome completo</label>
       </div>
       <!-- Campo de email -->
       <div class="input-field col s6">
         <i class="material-icons prefix">email</i>
         <input name="email" id="icon_prefix" type="email" class="validate">
-        <label for="icon_prefix">E-mail</label>
+        <?= ($email_OK ? '' : '<span class="erro">Precisamos do e-mail. Este será seu login ;)</span>'); ?>
+        <label for="icon_prefix">e-mail</label>
       </div>
       <!-- Campo de senha -->
       <div class="input-field col s6">
         <i class="material-icons prefix">security</i>
         <input name="senha" id="icon_prefix" type="password" class="validate">
-        <label for="icon_prefix">Senha</label>
+        <?= ($senha_OK ? '' : '<span class="erro">Ei! A senha deve ter seis caracteres, no mínimo.</span>'); ?>
+        <label for="icon_prefix">senha</label>
       </div>
       <!-- Campo de confirmação de senha -->
       <div class="input-field col s6">
         <i class="material-icons prefix">verified_user</i>
         <input name="confirmacao" id="icon_prefix" type="password" class="validate">
+        <?= ($confirmacao_OK ? '' : '<span class="erro">Parece que a confirmação não é igual a senha. Verifique!</span>'); ?>
+        <label for="icon_prefix">confirmação de senha</label>
       </div>
       <!-- Campo de foto -->
       <div class="file-field input-field">

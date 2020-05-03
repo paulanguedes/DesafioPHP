@@ -25,5 +25,5 @@ function listaUsuarios(){
         // Salvar essa string no arquivo usuarios.json
         file_put_contents('../json/usuarios.json', $stringUsuarios);
     }
-
+  }
 ?>
