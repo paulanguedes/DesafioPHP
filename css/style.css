@@ -261,6 +261,10 @@ body .createUsuario form div{
 .createUsuario button[type=submit]{
     color: #363759;
 }
+.createUsuario form .erro{
+    color: #F29441;
+    font-size: medium;
+}
 
 /* ==== CADASTRO USUARIO SUCESSO ==== */
 .usuarioOK{

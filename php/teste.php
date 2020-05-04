@@ -1,9 +1,7 @@
 <?php
-include('createProduto.php');
-include('functions.php');
 
 echo "<pre>";
-print_r($_FILES);
+var_dump($_FILES);
 echo "</pre>";
 
 ?>

@@ -35,11 +35,30 @@ if($_POST){
   if ($senha !== $confirmacao) {
     $confirmacao_OK = false;
   }
+  
+  // -- VERIFICANDO SE HOUVE UPLOAD DE IMAGEM DO USUÁRIO --
+  if($_FILES){
+
+    // Separar informações úteis da global $_FILES
+    $tmpName = $_FILES['fotousuario']['tmp_name'];
+    $fileName = uniqid() . '-' . $_FILES['fotousuario']['name'];
+    $error = $_FILES['fotousuario']['error'];
+
+    // Salvar o arquivo numa pasta do meu sistema
+    move_uploaded_file($tmpName,'./img/imgUsuarios/'.$fileName);
+
+    // Salvar o nome do arquivo em $fotousuario
+    $fotousuario = './img/imgUsuarios/'.$fileName;
+
+    } else {
+        $fotousuario = null;
+    }
+
   // -- SE ESTIVER TUDO VALIDADO, DIRECIONAR A UMA PÁGINA --
   if ($nome_OK && $email_OK && $senha_OK && $confirmacao_OK) {
     // -- SALVANDO O NOVO USUÁRIO --
     novoUsuario($nome, $email, $senha, $confirmacao, $fotousuario);
-    header('location: ../json/usuarios.json');
+    header('location: ./json/usuarios.json');
   }
 
 } 
@@ -79,7 +98,7 @@ if($_POST){
         <h5 class="center">novo usuário</h5>
     </div>
 
-    <form class="container" method="post" enctype="multipart/form-data">
+    <form class="container" action="" method="POST">
       <!-- Campo do nome -->
       <div class="input-field col s6">
         <i class="material-icons prefix">face</i>
@@ -112,10 +131,10 @@ if($_POST){
       <div class="file-field input-field">
         <div class="btn">
           <span><i class="material-icons">camera_front</i></span>
-          <input type="file">
+          <input type="file" accept=".jpg,.jpeg,.png,.gif" name="fotousuario">
         </div>
         <div class="file-path-wrapper">
-          <input class="file-path validate" name="fotousuario" type="text" placeholder=" foto do usuário" accept=".jpg,.jpeg,.png,.gif">
+          <input class="file-path validate" type="text" placeholder=" foto do usuário">
         </div>
       </div>
 
