@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('functions.php');
 
 // == GUARDANDO DADOS DIGITADOS EM VARIÁVEIS ==
@@ -60,7 +61,6 @@ if($_POST){
     novoUsuario($nome, $email, $senha, $confirmacao, $fotousuario);
     header('location: ./json/usuarios.json');
   }
-
 } 
 ?>
 

@@ -200,6 +200,10 @@ body .createProduto form div{
     font-size: 1rem;
     color: #363759;
 }
+.createProduto form .erro{
+    color: #F29441;
+    font-size: medium;
+}
 
 /* ==== CREATE USUÁRIO ==== */
 .createUsuario{

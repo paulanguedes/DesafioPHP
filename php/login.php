@@ -1,3 +1,31 @@
+<?php
+session_start();
+include('functions.php');
+
+// == LOGIN E SENHA DO USUÁRIO ==
+// -- Variável de controle
+$login_OK = true;
+
+// -- Verificar se o usuário inputou dados na área de login
+if ($_POST) {
+  
+  // -- Buscar um usuário com o e-mail digitado
+  $email = $_POST['email'];
+  $senha = $_POST['senha'];
+  $usuarios = listaUsuarios();
+
+  foreach ($usuarios as $usuario) {
+    
+    // -- Verificar dados digitados com banco de dados
+    if ($usuario['email'] == $email && $usuario['senha'] == $senha) {
+        
+      // -- Redirecinar o usuário para a parte logada do sistema
+      header('location: home.php');
+    }
+  }
+  $login_OK = false;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,21 +40,22 @@
 
   <section class="login">
 
-    <form class="container center">
+    <form class="container center" action="sucessoLogin.php" method="POST">
       
       <div class="center">
         <h5>login</h5>
       </div>
 
       <div class="input-field">
-        <input id="email" type="email" class="validate">
+        <input id="email" type="email" name="email" class="validate">
         <label for="email">E-mail</label>
       </div>
 
       <div class="input-field">
-        <input id="password" type="password" class="validate">
+        <input id="password" type="password" name="senha" class="validate">
         <label for="password">Senha</label>
       </div>
+      <?= ($login_OK ? '' : '<span class="erro">E-mail ou senha inválidos</span>'); ?>
 
       <button class="btn waves-effect waves-light" type="submit" name="action">Entrar
         <i class="material-icons right">send</i>

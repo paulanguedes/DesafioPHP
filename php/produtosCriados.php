@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 //array(1) { 
     //["fotoproduto"]=> array(5) { 
         //["name"]=> string(21) "docePalhaItaliana.jpg" 

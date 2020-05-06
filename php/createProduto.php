@@ -1,22 +1,58 @@
 <?php
+session_start();
+include('functions.php');
+
 // ==GUARDANDO DADOS DIGITADOS EM VARIÁVEIS ==
 $produto = $_POST['produto'];
 $descricao = $_POST['descricao'];
 $preco = $_POST['preco'];
 $foto = $FILE['foto'];
 
+// == CRIANDO VARIÁVEIS DE CONTROLE DE ERRO ==
+$produto_OK = true;
+$descricao_OK = true;
+$preco_OK = true;
+$foto_OK = true;
+
 // === VALIDANDO OS CAMPOS == 
-// -- VALIDANDO NOME DO PRODUTO --
-if (empty($produto)) {
-  echo "Ops! Como vamos chamar produto?";
-}
-// -- VALIDANDO PREÇO --
-if (!is_numeric($preco)) {
-  echo "O-Oh! O preço precisa ser um número."
-}
-// -- VALIDANDO FOTO --
-if (empty($foto)) {
-  echo "Queremos uma foto!";
+if($_POST){
+  // -- VALIDANDO NOME DO PRODUTO --
+  if (empty($produto)) {
+    $produto_OK = false;
+  }
+  if (strlen($produto)<3 || strlen($produto)>20) {
+    $produto_OK = false;
+  }
+  // -- VALIDANDO PREÇO --
+  if (!is_numeric($preco)) {
+    $preco_OK = false;
+  }
+  // -- VALIDANDO FOTO --
+  if (empty($foto)) {
+    $foto_OK = false;
+  }
+
+  if($_FILES){
+
+    // Separar informações úteis da global $_FILES
+    $tmpName = $_FILES['foto']['tmp_name'];
+    $fileName = uniqid() . '-' . $_FILES['foto']['name'];
+    $error = $_FILES['foto']['error'];
+
+    // Salvar o arquivo numa pasta do meu sistema
+    move_uploaded_file($tmpName,'../img/produtos/'.$fileName);
+
+    // Salvar o nome do arquivo em $foto
+    $foto = '../img/produtos/'.$fileName;
+
+    }
+
+  // -- SE ESTIVER TUDO VALIDADO, DIRECIONAR A UMA PÁGINA --
+  if ($produto_OK && $preco_OK && $foto_OK) {
+  // -- SALVANDO O NOVO PRODUTO --
+  novoProduto($produto, $descricao, $preco, $foto);
+  header('location: ../json/produtos.json');
+  }
 }
 ?>
 
@@ -54,11 +90,12 @@ if (empty($foto)) {
         <h5 class="center">novo produto</h5>
     </div>
 
-    <form class="container" action="../json/usuarios.json" method="POST" enctype="multipart/form-data">
+    <form class="container" method="POST" enctype="multipart/form-data">
       <!-- Campo do nome -->
       <div class="input-field col s6">
         <i class="material-icons prefix">cake</i>
         <input id="icon_prefix" name="produto" type="text" class="validate">
+        <?= ($produto_OK ? '' : '<span class="erro">Precisamos de um bom nome, nem tão curto e nem tão longo</span>'); ?>
         <label for="icon_prefix">produto</label>
       </div>
       <!-- Campo de descrição -->
@@ -71,6 +108,7 @@ if (empty($foto)) {
       <div class="input-field col s6">
         <i class="material-icons prefix">local_offer</i>
         <input id="icon_prefix" name="preco" type="number" class="validate">
+        <?= ($preco_OK ? '' : '<span class="erro">O-Oh! O preço precisa ser um número.</span>'); ?>
         <label for="icon_prefix">preço</label>
       </div>
       <!-- Campo de foto -->
@@ -81,6 +119,7 @@ if (empty($foto)) {
         </div>
         <div class="file-path-wrapper">
           <input class="file-path validate" name="foto" type="text" placeholder=" adicione fotos do produto">
+          <?= ($foto_OK ? '' : '<span class="erro">Queremos uma foto!</span>'); ?>
         </div>
       </div>
       <!-- Botão de envio do formulário -->

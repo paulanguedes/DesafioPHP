@@ -3,7 +3,7 @@
 // == CRIANDO UMA LISTA COM OS USUÁRIOS == 
 function listaUsuarios(){
     // Transformar o arquivo em uma string
-    $UsJsonStr = file_get_contents("../includes/usuarios.json");
+    $UsJsonStr = file_get_contents("../json/usuarios.json");
     // Transformar a string em array associativo
     $usuarios = json_decode($UsJsonStr, true);
     // Retornar o array associativo
@@ -12,18 +12,61 @@ function listaUsuarios(){
   
   // == FUNÇÃO PARA GUARDAR NOVO USUÁRIO NA LISTA == 
   function novoUsuario($nome, $email, $senha, $confirmação, $fotousuario){
+
     // Carregar a lista de usuarios usando a função anterior
     $usuarios = carregaUsuarios();
+
     // Criar um array associativo com os dados passados por parâmetro
     $arrayUsuarios = ['nome'=>$nome, 'email'=>$email, 'senha'=>$senha, 'confirmacao'=>$confirmacao, 'fotousuario'=>$fotousuario];
+
     // Adicionar os dados inputados ao array criado
     $usuarios[]= $arrayUsuarios;
+
     // Transformar o array de usuários de volta em string
     $stringUsuarios = json_encode($usuarios);
+
     // Verificar se existe algum caractere na string criada e, se tiver, salvar no arquivo usuarios.json
     if($stringUsuarios){
+
         // Salvar essa string no arquivo usuarios.json
         file_put_contents('../json/usuarios.json', $stringUsuarios);
     }
   }
+
+  // == CRIANDO UMA LISTA DE PRODUTOS == 
+function listaProdutos(){
+
+  // Transformar o arquivo em uma string
+  $PrdJsonStr = file_get_contents("../json/produtos.json");
+
+  // Transformar a string em array associativo
+  $produtos = json_decode($PrdJsonStr, true);
+
+  // Retornar o array associativo
+  return $produtos;
+}
+
+// == FUNÇÃO PARA GUARDAR NOVO USUÁRIO NA LISTA == 
+function novoProduto($produto, $descricao, $preco, $foto){
+
+  // Carregar a lista de usuarios usando a função anterior
+  $produtos = listaProdutos();
+
+  // Criar um array associativo com os dados passados por parâmetro
+  $arrayProdutos = ['produto'=>$produto, 'descricao'=>$descricao, 'preco'=>$preco, 'foto'=>$foto];
+
+  // Adicionar os dados inputados ao array criado
+  $produtos[]= $arrayProdutos;
+
+  // Transformar o array de usuários de volta em string
+  $stringProdutos = json_encode($produtos);
+
+  // Verificar se existe algum caractere na string criada e, se tiver, salvar no arquivo usuarios.json
+  if($stringUsuarios){
+
+      // Salvar essa string no arquivo usuarios.json
+      file_put_contents('../json/produtos.json', $stringProdutos);
+  }
+}
+
 ?>
