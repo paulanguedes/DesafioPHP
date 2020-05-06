@@ -77,6 +77,9 @@ footer{
 }
 
 /* ==== PRINCIPAL ==== */
+.principal{
+    padding: 20px;
+}
 .principal h5{
     margin: 30px 0;
     color: #363759;
@@ -88,7 +91,9 @@ footer{
     color: #616161;
     font-size: 1.2rem;
     font-weight: lighter;
+    line-height: 2.8rem;
 }
+
 
 /* ==== LOGIN ==== */
 #paginalogin{
@@ -111,17 +116,32 @@ footer{
 .login .input-field label {
     color: #9e9e9e;
     font-weight: 500;
+}.login .input-field input[type=email]:focus + label {
+    color: #F2D9BB;
 }
-.login .input-field input[type=email]:focus + label {
+.login .input-field input[type=text]:focus + label {
+    color: #F2D9BB;
+}
+.login .input-field input[type=password]:focus + label {
     color: #F2D9BB;
 }
 .login .input-field input[type=email]:focus {
     border-bottom: 1px solid #F2D9BB;
     box-shadow: 0 1px 0 0 #fafafa;
 }
+.login .input-field input[type=text]:focus {
+    border-bottom: 1px solid #F2D9BB;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
 .login .input-field input[type=password]:focus {
     border-bottom: 1px solid #F2D9BB;
     box-shadow: 0 1px 0 0 #fafafa;
+}
+.login .input-field input[type=email]:focus + label {
+    color: #F2D9BB;
+}
+.login .input-field input[type=text]:focus + label {
+    color: #F2D9BB;
 }
 .login .input-field input[type=password]:focus + label {
     color: #F2D9BB;
@@ -130,6 +150,10 @@ footer{
     background-color: #F2D9BB;
     color: #363759;
     margin: 30px 0;
+}
+.login form .erro{
+    color: #F29441;
+    font-size: medium;
 }
 
 

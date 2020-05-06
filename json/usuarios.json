@@ -1,1 +1,19 @@
-[{"nome":"Paula Guedes","email":"paulanguedes@gmail.com","senha":"58192917","confirmação":"58192917","imagem":null}]
+[
+    {"nome":"Paula Guedes",
+    "email":"paulanguedes@gmail.com",
+    "senha":"58192917",
+    "confirmação":"58192917",
+    "imagem":null},
+
+    {"nome":"Sérgio Moura",
+    "email":"sergio@dh.com",
+    "senha":"T03FullStack",
+    "confirmação":"T03FullStack",
+    "imagem":null},
+
+    {"nome":"Natália Lira",
+    "email":"natalia@dh.com",
+    "senha":"T03FullStack",
+    "confirmação":"T03FullStack",
+    "imagem":null}
+]

@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,10 +19,10 @@ session_start();
         <a href="#!" class="brand-logo"><img width="100px" src="../img/Logo2.png" alt="Logo do site"></a>
         <div class="nav-icons">
           <ul class="nav-icons-list tabs right hide-on-med-and-down">
-            <li class="icon-name tab col s3 tooltipped"><a href="./indexProdutos.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="lista de produtos">view_module</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="./createProduto.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="novo produto">library_add</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="./createUsuario.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="novo usuário">person_add</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="./login.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="encerrar sessão">face</i></a></li>
+            <li class="icon-name tab col s3 tooltipped"><a href="./indexProdutos.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="doces">view_module</i>Hover me!</a></li>
+            <li class="icon-name tab col s3 tooltipped"><a href="./createProduto.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="adicionar doce">library_add</i>Hover me!</a></li>
+            <li class="icon-name tab col s3 tooltipped"><a href="./createUsuario.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="adicionar usuário">person_add</i>Hover me!</a></li>
+            <li class="icon-name tab col s3 tooltipped"><a href="./index.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="encerrar sessão">face</i></a></li>
           </ul>
         </div>
       </div>
@@ -32,10 +32,19 @@ session_start();
   <section class="principal">
 
     <div class="container center-align">
-      <h5>nossa história</h5>
-      <p>O mundo em que Dulce vive é todo azul. É agradável, porém frio e distante. Para uma fada sedenta por novas aventuras, é um ambiente bastante tedioso. A Sala de Memórias, onde ela trabalha, também é toda azul, possui prateleiras enormes quase sem fim que armazenam as memórias sobre comida em utensílios de cozinha, e Dulce achava que aquilo não tinha sentido, que eram muitas tralhas velhas e sem importância.</p>
-      <p>Dulce acaba caindo dentro de um dos utensílios e descobre o que aqueles objetos realmente guardavam, as memórias humanas. Ela começa a visitar uma a uma e descobre vários mundos com novas cores e emoções.</p>
-      <p>Conforme Dulce visita as memórias, ela descobre muito sobre si mesma vivendo uma fatia de memória de outras pessoas. Ela começa a se transformar, e aos poucos essa transformação não consegue ficar contida somente dentro da fadinha, as mudanças ficam visíveis, e ela ganha asas para voar para novas aventuras! </p>
+
+      <h5><?= ($_SESSION['nome'] ? 'Oi, '.$_SESSION['nome'].'!' : "Olá!"); ?></h5>
+      <p>Entrem no nosso mundo todo azul! <br>
+      É agradável, porém frio e distante. <br>
+      E para alguém em busca de novas aventuras, é um ambiente bastante tedioso. <br>
+      A Sala de Memórias, onde trabalhamos, também é toda azul. <br>
+      Tem prateleiras que armazenamos as receitas dos nossos doces. <br>
+      Você pode achar que isso não tem sentido, que são coisas sem importância. <br>
+      Mas se ver de perto essas receitas, descobre que elas guardam as memórias humanas. <br>
+      Comece a visitar uma a uma e descubra vários mundos com novas cores e emoções. <br>
+      Conforme você visita as memórias, descobre muito sobre si em uma fatia de memória de outras pessoas. <br>
+      Você começará a se transformar, e aos poucos essa transformação ficaá mais contida. <br>
+      As mudanças ficarão visíveis você ganhará asas para voar para novas aventuras! </p>
     </div>
 
   </section>

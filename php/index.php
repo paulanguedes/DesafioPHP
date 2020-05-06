@@ -18,12 +18,16 @@ if ($_POST) {
     
     // -- Verificar dados digitados com banco de dados
     if ($usuario['email'] == $email && $usuario['senha'] == $senha) {
+
+      // -- Iniciar sessão para o usuário
+      session_start();
+
+      $_SESSION['nome'] = $usuario['nome'];
         
       // -- Redirecinar o usuário para a parte logada do sistema
       header('location: home.php');
     }
-  }
-  $login_OK = false;
+  }$login_OK = false;
 }
 ?>
 <!DOCTYPE html>
@@ -40,7 +44,7 @@ if ($_POST) {
 
   <section class="login">
 
-    <form class="container center" action="sucessoLogin.php" method="POST">
+    <form class="container center" method="POST">
       
       <div class="center">
         <h5>login</h5>
@@ -57,8 +61,15 @@ if ($_POST) {
       </div>
       <?= ($login_OK ? '' : '<span class="erro">E-mail ou senha inválidos</span>'); ?>
 
-      <button class="btn waves-effect waves-light" type="submit" name="action">Entrar
+      <!-- botão para logar no sistema -->
+      <button class="btn waves-effect waves-light blue" type="submit" name="action">Login
         <i class="material-icons right">send</i>
+      </button>
+
+      <!-- botão para entrar sem logar no sistema -->
+      <button class="btn waves-effect waves-light blue"><a href="home.php"></a>Home
+        <i class="material-icons right">home</i>
+        <?= ($login_OK ? '' : header('location: home.php')); ?>
       </button>
 
     </form>

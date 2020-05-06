@@ -2,7 +2,7 @@
 session_start();
 include('functions.php');
 
-// ==GUARDANDO DADOS DIGITADOS EM VARIÁVEIS ==
+// == GUARDANDO DADOS DIGITADOS EM VARIÁVEIS ==
 $produto = $_POST['produto'];
 $descricao = $_POST['descricao'];
 $preco = $_POST['preco'];
@@ -77,7 +77,7 @@ if($_POST){
             <li class="icon-name tab col s3 tooltipped"><a href="./indexProdutos.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="lista de produtos">view_module</i>Hover me!</a></li>
             <li class="icon-name tab col s3 tooltipped"><a href="./createProduto.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="novo produto">library_add</i>Hover me!</a></li>
             <li class="icon-name tab col s3 tooltipped"><a href="./createUsuario.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="novo usuário">person_add</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="./login.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="encerrar sessão">face</i></a></li>
+            <li class="icon-name tab col s3 tooltipped"><a href="./index.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="encerrar sessão">face</i></a></li>
           </ul>
         </div>
       </div>
