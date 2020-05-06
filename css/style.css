@@ -116,14 +116,6 @@ footer{
 .login .input-field label {
     color: #9e9e9e;
     font-weight: 500;
-}.login .input-field input[type=email]:focus + label {
-    color: #F2D9BB;
-}
-.login .input-field input[type=text]:focus + label {
-    color: #F2D9BB;
-}
-.login .input-field input[type=password]:focus + label {
-    color: #F2D9BB;
 }
 .login .input-field input[type=email]:focus {
     border-bottom: 1px solid #F2D9BB;
@@ -145,6 +137,18 @@ footer{
 }
 .login .input-field input[type=password]:focus + label {
     color: #F2D9BB;
+}
+.login .input-field input[type=email].valid {
+    border-bottom: 1px solid #F2D9BB;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.login .input-field input[type=text].valid {
+    border-bottom: 1px solid #F2D9BB;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.login .input-field input[type=password].valid {
+    border-bottom: 1px solid #F2D9BB;
+    box-shadow: 0 1px 0 0 #fafafa;
 }
 .login button{
     background-color: #F2D9BB;

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +33,7 @@
 
     <div class="container center-align">
 
-      <h5><?= ($_SESSION['nome'] ? 'Oi, '.$_SESSION['nome'].'!' : "Olá!"); ?></h5>
+      <h5><?= ($_SESSION ? 'Oi, '.$_SESSION['nome'].'!' : 'Olá!') ?>  </h5>
       <p>Entrem no nosso mundo todo azul! <br>
       É agradável, porém frio e distante. <br>
       E para alguém em busca de novas aventuras, é um ambiente bastante tedioso. <br>

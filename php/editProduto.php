@@ -1,21 +1,29 @@
 <?php
 session_start();
+include('functions.php');
+
+// == TESTAR SE O USUÁRIO TEM PERMISSÃO DE ACESSO ==
+if (!$_SESSION) {
+  
+  // -- Caso negativo, redireciona para a página de login -- 
+  header('location: index.php');
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar produto</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" />
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar produto</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="../css/materialize.min.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
   <div class="home">
-    <nav>
+  <nav>
       <div class="nav-wrapper">
         <a href="#!" class="brand-logo"><img width="100px" src="../img/Logo2.png" alt="Logo do site"></a>
         <div class="nav-icons">
@@ -49,8 +57,9 @@ session_start();
     </div>
   </footer>
 
-<script src="../js/jQuery341.js"></script>
-<script src="../js/materialize.min.js"></script>
-<script src="../js/index.js"></script>
+  <script src="../js/jQuery341.js"></script>
+  <script src="../js/materialize.min.js"></script>
+  <script src="../js/index.js"></script>
+
 </body>
 </html>

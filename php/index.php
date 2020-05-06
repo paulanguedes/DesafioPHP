@@ -69,7 +69,6 @@ if ($_POST) {
       <!-- botão para entrar sem logar no sistema -->
       <button class="btn waves-effect waves-light blue"><a href="home.php"></a>Home
         <i class="material-icons right">home</i>
-        <?= ($login_OK ? '' : header('location: home.php')); ?>
       </button>
 
     </form>

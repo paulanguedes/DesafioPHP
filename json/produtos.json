@@ -1,0 +1,32 @@
+[
+    {
+        "produto" : "palha brasileira",
+        "descricao" : "brigadeiro com biscoito",
+        "preco" : "8",
+        "foto" : "../img/docePalhaBrasileira.jpg"
+    },
+    {
+        "produto" : "doce de abóbora",
+        "descricao" : "doce de abóbora feito no tacho",
+        "preco" : "5",
+        "foto" : "../img/doceDoceAbobora.jpg"
+    },
+    {
+        "produto" : "brigadeiro de panela",
+        "descricao" : "brigadeiro caseiro feito no tacho",
+        "preco" : "5",
+        "foto" : "../img/doceBrigadeiro.jpeg"
+    },
+    {
+        "produto" : "pudim com leite",
+        "descricao" : "pudim com leite condensado e açucar queimado",
+        "preco" : "6",
+        "foto" : "../img/docePudimLeite.jpg"
+    },
+    {
+        "produto" : "doce de leite",
+        "descricao" : "doce de leite caseiro feito com leite condensado",
+        "preco" : "4",
+        "foto" : "../img/doceDoceLeite.jpg"
+    }
+]
