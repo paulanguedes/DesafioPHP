@@ -164,9 +164,16 @@ footer{
 /* ==== CREATE PRODUTO ==== */
 .createProduto{
     margin: 20px 0;
+    line-height: 5rem;
 }
 .createProduto .tituloinput h5{
     font-weight: 500;
+    color: #363759;
+    margin-bottom: 20px;
+}
+.createProduto .tituloinput p{
+    font-weight: lighter;
+    font-size: medium;
     color: #363759;
     margin-bottom: 20px;
 }
@@ -298,6 +305,7 @@ body .createUsuario form div{
     font-size: medium;
 }
 
+
 /* ==== CADASTRO USUARIO SUCESSO ==== */
 .usuarioOK{
     height: 500px;
@@ -310,4 +318,21 @@ body .createUsuario form div{
     font-weight: lighter;
     color: #363759;
     margin-top: 150px;
+}
+
+/* ==== PRODUTOS ==== */
+.listaProdutos{
+    margin: 20px 0;
+    line-height: 4rem;
+}
+.listaProdutos .tituloinput h5{
+    font-weight: 500;
+    color: #363759;
+    margin-bottom: 20px;
+}
+.listaProdutos .tituloinput p{
+    font-weight: lighter;
+    font-size: medium;
+    color: #363759;
+    margin-bottom: 20px;
 }

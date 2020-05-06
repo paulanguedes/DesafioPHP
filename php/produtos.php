@@ -30,6 +30,12 @@ session_start();
   </div>
 
   <section class="listaProdutos">
+    <div class="tituloinput">
+        <h5 class="center">doces e memórias</h5>
+        <p class="center">veja aqui todos os doces adicionados pelos habitantes desse mundo açucarado</p>
+    </div>
+
+    
 
   </section>
 

@@ -87,29 +87,30 @@ if($_POST){
   <section class="createProduto">
     <!-- Título da página -->
     <div class="tituloinput">
-        <h5 class="center">novo produto</h5>
+        <h5 class="center">adicionando doce</h5>
+        <p class="center">adicione aqui o seu doce com todo o carinho e lembre-se de que ele fará parte da memória de alguém</p>
     </div>
 
     <form class="container" method="POST" enctype="multipart/form-data">
       <!-- Campo do nome -->
       <div class="input-field col s6">
         <i class="material-icons prefix">cake</i>
-        <input id="icon_prefix" name="produto" type="text" class="validate">
+        <input id="icon_prefix" name="produto" type="text" class="validate" placeholder=" qual o nome do doce">
         <?= ($produto_OK ? '' : '<span class="erro">Precisamos de um bom nome, nem tão curto e nem tão longo</span>'); ?>
-        <label for="icon_prefix">produto</label>
+        <label for="icon_prefix"></label>
       </div>
       <!-- Campo de descrição -->
       <div class="input-field col s6">
         <i class="material-icons prefix">description</i>
-        <input id="icon_prefix" name="descricao" type="text" class="validate">
-        <label for="icon_prefix">descrição</label>
+        <input id="icon_prefix" name="descricao" type="text" class="validate" placeholder=" fale um poquinho mais">
+        <label for="icon_prefix"></label>
       </div>
       <!-- Campo de preço -->
       <div class="input-field col s6">
         <i class="material-icons prefix">local_offer</i>
-        <input id="icon_prefix" name="preco" type="number" class="validate">
+        <input id="icon_prefix" name="preco" type="number" class="validate" placeholder=" preço">
         <?= ($preco_OK ? '' : '<span class="erro">O-Oh! O preço precisa ser um número.</span>'); ?>
-        <label for="icon_prefix">preço</label>
+        <label for="icon_prefix"></label>
       </div>
       <!-- Campo de foto -->
       <div class="file-field input-field">
@@ -118,7 +119,7 @@ if($_POST){
           <input type="file">
         </div>
         <div class="file-path-wrapper">
-          <input class="file-path validate" name="foto" type="text" placeholder=" adicione fotos do produto">
+          <input class="file-path validate" name="foto" type="text" placeholder=" mostra uma foto =D">
           <?= ($foto_OK ? '' : '<span class="erro">Queremos uma foto!</span>'); ?>
         </div>
       </div>
