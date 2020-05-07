@@ -53,10 +53,10 @@ if($_POST){
     $error = $_FILES['fotousuario']['error'];
 
     // Salvar o arquivo numa pasta do meu sistema
-    move_uploaded_file($tmpName,'./img/imgUsuarios/'.$fileName);
+    move_uploaded_file($tmpName,'../img/imgUsuarios/'.$fileName);
 
     // Salvar o nome do arquivo em $fotousuario
-    $fotousuario = './img/imgUsuarios/'.$fileName;
+    $fotousuario = '../img/imgUsuarios/'.$fileName;
 
     } else {
         $fotousuario = null;
@@ -65,7 +65,7 @@ if($_POST){
   // -- SE ESTIVER TUDO VALIDADO, DIRECIONAR A UMA PÁGINA --
   if ($nome_OK && $email_OK && $senha_OK && $confirmacao_OK) {
     // -- SALVANDO O NOVO USUÁRIO --
-    novoUsuario($nome, $email, $senha, $confirmacao, $fotousuario);
+    novoUsuario($nome, $email, $senha, $fotousuario);
     header('location: sucessoAddUsuario.php');
   }
 } 
@@ -105,7 +105,7 @@ if($_POST){
         <h5 class="center">novo usuário</h5>
     </div>
 
-    <form class="container" action="" method="POST">
+    <form class="container" action="" method="POST" enctype="multipart/form-data">
       <!-- Campo do nome -->
       <div class="input-field col s6">
         <i class="material-icons prefix">face</i>

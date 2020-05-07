@@ -67,8 +67,8 @@ if ($_POST) {
       </button>
 
       <!-- botão para entrar sem logar no sistema -->
-      <button class="btn waves-effect waves-light blue"><a href="home.php"></a>Home
-        <i class="material-icons right">home</i>
+      <button class="btn waves-effect waves-light blue"><a href="home.php">Home
+        <i class="material-icons right">home</i></a>
       </button>
 
     </form>

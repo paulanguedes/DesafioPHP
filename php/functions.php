@@ -11,13 +11,13 @@ function listaUsuarios(){
   }
   
   // == FUNÇÃO PARA GUARDAR NOVO USUÁRIO NA LISTA == 
-  function novoUsuario($nome, $email, $senha, $confirmação, $fotousuario){
+  function novoUsuario($nome, $email, $senha, $fotousuario){
 
     // Carregar a lista de usuarios usando a função anterior
-    $usuarios = carregaUsuarios();
+    $usuarios = listaUsuarios();
 
     // Criar um array associativo com os dados passados por parâmetro
-    $arrayUsuarios = ['nome'=>$nome, 'email'=>$email, 'senha'=>$senha, 'confirmacao'=>$confirmacao, 'fotousuario'=>$fotousuario];
+    $arrayUsuarios = ['nome'=>$nome, 'email'=>$email, 'senha'=>$senha, 'fotousuario'=>$fotousuario];
 
     // Adicionar os dados inputados ao array criado
     $usuarios[]= $arrayUsuarios;
