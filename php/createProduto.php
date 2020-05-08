@@ -71,7 +71,7 @@ if($_POST){
   <div class="home">
     <nav>
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo"><img width="100px" src="../img/Logo2.png" alt="Logo do site"></a>
+        <a href="home.php" class="brand-logo"><img width="100px" src="../img/Logo2.png" alt="Logo do site"></a>
         <div class="nav-icons">
           <ul class="nav-icons-list tabs right hide-on-med-and-down">
             <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="lista de produtos"><a href="./produtos.php"><i class="material-icons">view_module</i>Hover me!</a></li>

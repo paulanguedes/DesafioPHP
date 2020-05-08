@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+include('functions.php');
+
+$produtos = listaProdutos();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +21,7 @@ session_start();
   <div class="home">
     <nav>
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo"><img width="100px" src="../img/Logo2.png" alt="Logo do site"></a>
+        <a href="home.php" class="brand-logo"><img width="100px" src="../img/Logo2.png" alt="Logo do site"></a>
         <div class="nav-icons">
           <ul class="nav-icons-list tabs right hide-on-med-and-down">
             <li class="icon-name tab col s3"><i class="material-icons">view_module</i>Hover me!</li>
@@ -35,6 +39,27 @@ session_start();
         <h5 class="center">doces e memórias</h5>
         <p class="center">veja aqui todos os doces adicionados pelos habitantes desse mundo açucarado</p>
     </div>
+
+  <section class="container center">
+
+    <table>
+      <tr>
+        <th class="tablelable">doce</th>
+        <th class="tablelable">sobre</th>
+        <th class="tablelable">preço</th>
+        <th class="tablelable center">saiba mais</th>
+      </tr>
+      <tr>
+        <?php foreach($produtos as $produto): ?>
+        <td class="tablevalue" id="nomeprod"> <?=$produto['produto']?> </td>
+        <td class="tablevalue"> <?=$produto['descricao']?> </td>
+        <td class="tablevalue"> R$ <?=number_format($produto['preco'], 2, ',', '.') ?> </td>
+        <td class="tablevalue center"> <a href="showProduto.php" class="botaomais btn-floating btn-small waves-effect waves-light"><i class="material-icons">add</i></a> </td>
+      </tr>
+      <?php endforeach;?>
+    </table>
+
+  </section>
 
     
 

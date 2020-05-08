@@ -68,5 +68,4 @@ function novoProduto($produto, $descricao, $preco, $foto){
       file_put_contents('../json/produtos.json', $stringProdutos);
   }
 }
-
 ?>

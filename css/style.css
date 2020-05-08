@@ -154,6 +154,13 @@ footer{
     background-color: #F2D9BB;
     color: #363759;
     margin: 30px 0;
+    font-size: small;
+}
+.login button a{
+    color: #363759;
+    margin: 30px 0;
+    font-size: small;
+    font-weight: 600;
 }
 .login form .erro{
     color: #F29441;
@@ -335,4 +342,36 @@ body .createUsuario form div{
     font-size: medium;
     color: #363759;
     margin-bottom: 20px;
+}
+.listaProdutos table tr{
+    border: none;
+}
+.listaProdutos table th{
+    background-color: #363759;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding-left: 15px;
+}
+.listaProdutos table tr:hover{
+    background-color: #fbe9e7;
+}
+.listaProdutos .tablevalue{
+    font-size: 1.2rem;
+    color: #424242;
+    padding-left: 15px;
+    height: 10px;
+}
+.listaProdutos .tablevalue:first-child{
+    font-size: 1.2rem;
+    color: #212121;
+}
+.listaProdutos .botaomais{
+    background-color: #ADC5D9;
+    color: #363759;
+    position: relative;
+    bottom: 2px;
+}
+.listaProdutos .botaomais i{
+    color: #363759;
 }
