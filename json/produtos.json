@@ -15,7 +15,7 @@
         "produto" : "brigadeiro de panela",
         "descricao" : "brigadeiro caseiro feito no tacho",
         "preco" : "5",
-        "foto" : "../img/doceBrigadeiro.jpeg"
+        "foto" : "../img/doceBrigadeiro.jpg"
     },
     {
         "produto" : "pudim com leite",

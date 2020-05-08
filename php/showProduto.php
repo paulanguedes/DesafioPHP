@@ -1,5 +1,9 @@
 <?php
 session_start();
+include('functions.php');
+
+//Capturar o id solicitado
+
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +11,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos</title>
+    <title>Produto</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" />
     <link rel="stylesheet" href="../css/style.css">
@@ -29,6 +33,28 @@ session_start();
       </div>
     </nav>
   </div>
+
+  <section class="showProduto container center">
+  
+      <div class="card col s12">
+        <img class="logoreceita" src="../img/Logo2.png" alt="Logo Fatias de Memória">
+        <div class="card-title">
+          <span class="card-title">brigadeiro de panela</span>
+        </div>
+        <div class="card-content">
+          <p>brigadeiro caseiro feito no tacho</p>
+          <p>R$ 5,00</p>
+        </div>
+        <div class="card-image">
+          <img src='../img/doceBrigadeiro.jpg'>
+        </div>
+        <div class="card-action">
+          <a href="editProduto.php">editar</a>
+          <a href="#">deletar</a>
+        </div>
+      </div>
+  
+  </section>
 
   <footer class="page-footer">
     <div class="container">

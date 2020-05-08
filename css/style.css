@@ -375,3 +375,43 @@ body .createUsuario form div{
 .listaProdutos .botaomais i{
     color: #363759;
 }
+
+
+/* ==== SHOW PRODUTO ==== */
+.showProduto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.showProduto .card{
+    padding: 20px;
+    margin-top: 30px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.showProduto .card .logoreceita{
+    width: 30%;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    margin-bottom: 20px;
+}
+.showProduto .card .card-title{
+    margin-bottom: 20px;
+    color: #363759;
+    font-size: 1.4rem;
+}
+.showProduto .card .card-content p{
+    margin-bottom: 20px;
+    color: #424242;
+    font-size: 1.2rem;
+}
+.showProduto .card .card-image{
+    margin-bottom: 30px;
+    width: 90%;
+}
+.showProduto .card .card-action a{
+    text-transform: lowercase !important;
+    font-size: 1.2rem;
+}
