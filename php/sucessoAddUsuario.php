@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuários</title>
+    <title>Fatias de Memória</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" />
     <link rel="stylesheet" href="../css/style.css">
@@ -30,9 +30,13 @@ session_start();
   </div>
 
   <section class="usuarioOK">
-
+    <!-- Mensagem de sucesso no cadastro de usuário -->
     <div class="container center-align">
       <h6>Cadastro de novo usuário efetuado com sucesso!</h6>
+    </div>
+    <!-- Botão encaminha para lista de usuários -->
+    <div class="container center-align">
+    <a href="usuarios.php">Clique aqui para visualizar todos os usuários</a>
     </div>
 
   </section>

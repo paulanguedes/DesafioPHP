@@ -35,7 +35,7 @@ function listaUsuarios(){
 
   // == CRIANDO UMA LISTA DE PRODUTOS == 
 function listaProdutos(){
-
+  
   // Transformar o arquivo em uma string
   $PrdJsonStr = file_get_contents("../json/produtos.json");
 
@@ -48,21 +48,21 @@ function listaProdutos(){
 
 // == FUNÇÃO PARA GUARDAR NOVO PRODUTO NA LISTA == 
 function novoProduto($produto, $descricao, $preco, $foto){
-
+  
   // Carregar a lista de produtos usando a função anterior
   $produtos = listaProdutos();
-
-  // Criar um array associativo com os dados passados por parâmetro
+ 
+  // Criar um array associativo com os dados inputados por parâmetro
   $arrayProdutos = ['produto'=>$produto, 'descricao'=>$descricao, 'preco'=>$preco, 'foto'=>$foto];
 
   // Adicionar os dados inputados ao array criado
   $produtos[]= $arrayProdutos;
 
   // Transformar o array de produtos de volta em string
-  $stringProdutos = json_encode($produtos);
+  $stringProdutos = json_encode($arrayProdutos);
 
   // Verificar se existe algum caractere na string criada e, se tiver, salvar no arquivo produtos.json
-  if($stringUsuarios){
+  if($stringProdutos){
 
       // Salvar essa string no arquivo produtos.json
       file_put_contents('../json/produtos.json', $stringProdutos);

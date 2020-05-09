@@ -3,6 +3,13 @@ session_start();
 
 include('functions.php');
 
+// == TESTAR SE O USUÁRIO TEM PERMISSÃO DE ACESSO ==
+if (!$_SESSION) {
+  
+  // -- Caso negativo, redireciona para a página de login -- 
+  header('location: index.php');
+}
+
 $produtos = listaProdutos();
 
 ?>

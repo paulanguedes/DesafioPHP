@@ -318,13 +318,18 @@ body .createUsuario form div{
     height: 500px;
     background-image: url(../img/fada.png);
     background-repeat: no-repeat;
-    background-size: 300px;
+    background-size: 400px;
 }
 .usuarioOK h6{
     font-size: 1.8rem;
     font-weight: lighter;
     color: #363759;
     margin-top: 150px;
+}
+.usuarioOK a{
+    font-size: 1.4rem;
+    font-weight: lighter;
+    color: #F29441;
 }
 
 /* ==== PRODUTOS ==== */

@@ -1,4 +1,5 @@
 <?php
-$id = uniqid();
-echo $id;
+include('functions.php');
+
+echo novoProduto();
 ?>

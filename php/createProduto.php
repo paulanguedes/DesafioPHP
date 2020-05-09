@@ -2,12 +2,18 @@
 session_start();
 include('functions.php');
 
+// == TESTAR SE O USUÁRIO TEM PERMISSÃO DE ACESSO ==
+if (!$_SESSION) {
+  
+  // -- Caso negativo, redireciona para a página de login -- 
+  header('location: index.php');
+}
+
 // == GUARDANDO DADOS DIGITADOS EM VARIÁVEIS ==
 $produto = $_POST['produto'];
 $descricao = $_POST['descricao'];
 $preco = $_POST['preco'];
 $foto = $FILE['foto'];
-$id = uniqid(uniqid(rand(), true));
 
 // == CRIANDO VARIÁVEIS DE CONTROLE DE ERRO ==
 $produto_OK = true;
@@ -17,12 +23,16 @@ $foto_OK = true;
 
 // === VALIDANDO OS CAMPOS == 
 if($_POST){
+
   // -- VALIDANDO NOME DO PRODUTO --
   if (empty($produto)) {
     $produto_OK = false;
   }
   if (strlen($produto)<3 || strlen($produto)>20) {
     $produto_OK = false;
+  }
+  if (strlen($descricao)>30) {
+    $descricao_OK = false;
   }
   // -- VALIDANDO PREÇO --
   if (!is_numeric($preco)) {
@@ -44,16 +54,18 @@ if($_POST){
     move_uploaded_file($tmpName,'../img/'.$fileName);
 
     // Salvar o nome do arquivo em $foto
-    $foto = '../img/'.$fileName;
+    $foto = "doce".$fileName;
     }
 
   // -- SE ESTIVER TUDO VALIDADO, DIRECIONAR A UMA PÁGINA --
-  if ($produto_OK && $preco_OK && $foto_OK) {
-  // -- SALVANDO O NOVO PRODUTO --
-  novoProduto($produto, $descricao, $preco, $foto, $id);
-  header('location: ../json/produtos.json');
+  if ($produto_OK && $descricao_OK && $preco_OK && $foto_OK) {
+
+    // -- SALVANDO O NOVO PRODUTO --
+    novoProduto($produto, $descricao, $preco, $foto);
+    header('location: ../json/produtos.json');
   }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -77,7 +89,7 @@ if($_POST){
             <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="lista de produtos"><a href="./produtos.php"><i class="material-icons">view_module</i>Hover me!</a></li>
             <li class="icon-name tab col s3"><i class="material-icons" >library_add</i>Hover me!</li>
             <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="novo usuário"><a href="./createUsuario.php"><i class="material-icons">person_add</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="encerrar sessão"><a href="./index.php"><i class="material-icons">face</i></a>Hover me!</li>
+            <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="encerrar sessão"><a href="./index.php"><i class="material-icons">face</i>Hover me!</a></li>
           </ul>
         </div>
       </div>
@@ -103,6 +115,7 @@ if($_POST){
       <div class="input-field col s6">
         <i class="material-icons prefix">description</i>
         <input id="icon_prefix" name="descricao" type="text" class="validate" placeholder=" fale um poquinho mais">
+        <?= ($descricao_OK ? '' : '<span class="erro">Está muito longa essa história ;D</span>'); ?>
         <label for="icon_prefix"></label>
       </div>
       <!-- Campo de preço -->
@@ -130,8 +143,6 @@ if($_POST){
         </button>
       </div>
       
-
-
     </form>
 
   </section>
