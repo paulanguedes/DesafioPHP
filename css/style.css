@@ -307,6 +307,12 @@ body .createUsuario form div{
 .createUsuario button[type=submit]{
     color: #363759;
 }
+.createUsuario .botaousuarios a i{
+    color: #363759;
+}.createUsuario .botaousuarios a{
+    color: #363759;
+    font-size: small;
+}
 .createUsuario form .erro{
     color: #F29441;
     font-size: medium;
