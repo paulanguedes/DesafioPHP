@@ -54,7 +54,7 @@ $produtos = listaProdutos();
         <td class="tablevalue" id="nomeprod"> <?=$produto['produto']?> </td>
         <td class="tablevalue"> <?=$produto['descricao']?> </td>
         <td class="tablevalue"> R$ <?=number_format($produto['preco'], 2, ',', '.') ?> </td>
-        <td class="tablevalue center"> <a id=<?=$produto['produto']?> href="showProduto.php" class="botaomais btn-floating btn-small waves-effect waves-light"><i class="material-icons">add</i></a> </td>
+        <td class="tablevalue center"><a href="showProduto.php" class="botaomais btn-floating btn-small waves-effect waves-light"><form method="get"></form><i class="material-icons">add</i></a> </td>
       </tr>
       <?php endforeach;?>
     </table>

@@ -17,7 +17,7 @@ function listaUsuarios(){
     $usuarios = listaUsuarios();
 
     // Criar um array associativo com os dados passados por parâmetro
-    $arrayUsuarios = ['nome'=>$nome, 'email'=>$email, 'senha'=>$senha, 'fotousuario'=>$fotousuario];
+    $arrayUsuarios = ['nome'=>$nome, 'email'=>$email, 'senha'=> password_hash($senha, PASSWORD_DEFAULT), 'fotousuario'=>$fotousuario];
 
     // Adicionar os dados inputados ao array criado
     $usuarios[]= $arrayUsuarios;

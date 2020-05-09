@@ -7,6 +7,7 @@ $produto = $_POST['produto'];
 $descricao = $_POST['descricao'];
 $preco = $_POST['preco'];
 $foto = $FILE['foto'];
+$id = uniqid(uniqid(rand(), true));
 
 // == CRIANDO VARIÁVEIS DE CONTROLE DE ERRO ==
 $produto_OK = true;
@@ -40,18 +41,17 @@ if($_POST){
     $error = $_FILES['foto']['error'];
 
     // Salvar o arquivo numa pasta do meu sistema
-    move_uploaded_file($tmpName,'../img/produtos/'.$fileName);
+    move_uploaded_file($tmpName,'../img/'.$fileName);
 
     // Salvar o nome do arquivo em $foto
-    $foto = '../img/produtos/'.$fileName;
-
+    $foto = '../img/'.$fileName;
     }
 
   // -- SE ESTIVER TUDO VALIDADO, DIRECIONAR A UMA PÁGINA --
   if ($produto_OK && $preco_OK && $foto_OK) {
   // -- SALVANDO O NOVO PRODUTO --
-  novoProduto($produto, $descricao, $preco, $foto);
-  header('location: produtos.php');
+  novoProduto($produto, $descricao, $preco, $foto, $id);
+  header('location: ../json/produtos.json');
   }
 }
 ?>
