@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('functions.php');
 
 // == TESTAR SE O USUÁRIO TEM PERMISSÃO DE ACESSO ==
 if (!$_SESSION) {
@@ -7,7 +8,9 @@ if (!$_SESSION) {
     // -- Caso negativo, redireciona para a página de login -- 
     header('location: index.php');
   }
-
+  
+// == CHAMANDO A FUNÇÃO PARA LISTAR OS USUÁRIOS ==
+$usuarios = listaUsuarios();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +42,28 @@ if (!$_SESSION) {
 
   <section class="usuarios">
 
-    
+  <div class="tituloinput">
+        <h5 class="center">membros</h5>
+    </div>
+
+  <section class="container center">
+
+    <table>
+      <tr>
+        <th class="tablelable">nome</th>
+        <th class="tablelable">e-mail</th>
+        <th class="tablelable">foto</th>
+        <th class="tablelable center">excluir</th>
+      </tr>
+      <tr>
+        <?php foreach($usuarios as $usuario): ?>
+        <td class="tablevalue"> <?=$usuario['nome']?> </td>
+        <td class="tablevalue"> <?=$usuario['email']?> </td>
+        <td class="tablevalue center"> <img src="<?=$usuario['fotousuario']?>" alt="Foto <?=$usuario['nome']?>"> </td>
+        <td class="tablevalue center"><a class="botaodeletar btn-floating btn-small waves-effect waves-light"><i class="material-icons">remove</i></a> </td>
+      </tr>
+      <?php endforeach;?>
+    </table>
 
   </section>
 

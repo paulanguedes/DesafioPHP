@@ -151,6 +151,13 @@ if($_POST){
           <i class="material-icons right">send</i>
         </button>
       </div>
+
+      <!-- Botão para lista de usuários -->
+      <div class="center">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Criar
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
   
     </form>
 
