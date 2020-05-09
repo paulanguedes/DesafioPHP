@@ -17,15 +17,17 @@ if ($_POST) {
   foreach ($usuarios as $usuario) {
     
     // -- Verificar dados digitados com banco de dados
-    if ($usuario['email'] == $email && $usuario['senha'] == $senha) {
+    if ($usuario['email'] == $email) {
+      
+      if (password_verify($senha, $usuario['senha'])) {
+        // -- Iniciar sessão para o usuário
+        session_start();
 
-      // -- Iniciar sessão para o usuário
-      session_start();
-
-      $_SESSION['nome'] = $usuario['nome'];
-        
-      // -- Redirecinar o usuário para a parte logada do sistema
-      header('location: home.php');
+        $_SESSION['nome'] = $usuario['nome'];
+          
+        // -- Redirecinar o usuário para a parte logada do sistema
+        header('location: home.php');
+      }
     }
   }$login_OK = false;
 }
