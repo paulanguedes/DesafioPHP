@@ -379,12 +379,19 @@ body .createUsuario form div{
 }
 .usuarios .botaodeletar{
     background-color: #363759;
-    color: #363759;
     position: relative;
     bottom: 2px;
 }
 .usuarios .botaodeletar i{
     color: #F2D9BB;
+}
+.usuarios .botaoeditar{
+    background-color: #F2D9BB;
+    position: relative;
+    bottom: 2px;
+}
+.usuarios .botaoeditar i{
+    color: #363759;
 }
 
 

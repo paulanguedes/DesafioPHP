@@ -53,6 +53,7 @@ $usuarios = listaUsuarios();
         <th class="tablelable">nome</th>
         <th class="tablelable">e-mail</th>
         <th class="tablelable">foto</th>
+        <th class="tablelable center">editar</th>
         <th class="tablelable center">excluir</th>
       </tr>
       <tr>
@@ -60,6 +61,7 @@ $usuarios = listaUsuarios();
         <td class="tablevalue"> <?=$usuario['nome']?> </td>
         <td class="tablevalue"> <?=$usuario['email']?> </td>
         <td class="tablevalue center"> <img src="<?=$usuario['fotousuario']?>" alt="Foto <?=$usuario['nome']?>"> </td>
+        <td class="tablevalue center"><a href='editUsuario.php?id=<?=$usuario['nome']?>' class="botaoeditar btn-floating btn-small waves-effect waves-light"><i class="material-icons">edit</i></a> </td>
         <td class="tablevalue center"><a class="botaodeletar btn-floating btn-small waves-effect waves-light"><i class="material-icons">remove</i></a> </td>
       </tr>
       <?php endforeach;?>
