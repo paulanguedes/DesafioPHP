@@ -1,5 +1,7 @@
 <?php
 include('functions.php');
 
-echo novoProduto();
+
+var_dump($_FILES);
+exit;
 ?>

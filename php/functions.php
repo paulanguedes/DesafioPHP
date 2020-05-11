@@ -55,11 +55,11 @@ function novoProduto($id, $produto, $descricao, $preco, $foto){
   // Criar um array associativo com os dados inputados por parâmetro
   $arrayProdutos = ['id'=>$id, 'produto'=>$produto, 'descricao'=>$descricao, 'preco'=>$preco, 'foto'=>$foto];
 
-  // Adicionar os dados inputados ao array criado
+  // Adicionar $arrayProdutos ao final do $produtos
   $produtos[]= $arrayProdutos;
 
   // Transformar o array de produtos de volta em string
-  $stringProdutos = json_encode($arrayProdutos);
+  $stringProdutos = json_encode($produtos);
 
   // Verificar se existe algum caractere na string criada e, se tiver, salvar no arquivo produtos.json
   if($stringProdutos){

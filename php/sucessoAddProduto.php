@@ -36,7 +36,7 @@ session_start();
     </div>
     <!-- Botão encaminha para lista de usuários -->
     <div class="container">
-    <a href="usuarios.php">Clique aqui para visualizar todos os doces</a>
+    <a href="produtos.php">Clique aqui para visualizar todos os doces</a>
     </div>
 
   </section>

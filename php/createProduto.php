@@ -2,6 +2,7 @@
 session_start();
 include('functions.php');
 
+
 // == TESTAR SE O USUÁRIO TEM PERMISSÃO DE ACESSO ==
 if (!$_SESSION) {
   
@@ -31,7 +32,7 @@ if($_POST){
   if (strlen($produto)<3 || strlen($produto)>20) {
     $produto_OK = false;
   }
-  if (strlen($descricao)>30) {
+  if (strlen($descricao)>50) {
     $descricao_OK = false;
   }
   // -- VALIDANDO PREÇO --
@@ -50,7 +51,7 @@ if($_POST){
     move_uploaded_file($tmpName,'../img/'.$fileName);
 
     // Salvar o nome do arquivo em $foto
-    $foto = "doce".$fileName;
+    $foto = '../img/'.$fileName;
     }else{
       $foto_OK = false;
     }
@@ -63,8 +64,8 @@ if($_POST){
 
     // -- SALVANDO O NOVO PRODUTO --
     novoProduto($id, $produto, $descricao, $preco, $foto);
-    
-    header('location: ../json/produtos.json');
+
+    header('location: sucessoAddProduto.php');
   }
 }
 
@@ -102,7 +103,7 @@ if($_POST){
     <!-- Título da página -->
     <div class="tituloinput">
         <h5 class="center">adicionando doce</h5>
-        <p class="center">adicione aqui o seu doce com todo o carinho e lembre-se de que ele fará parte da memória de alguém</p>
+        <p class="center">adicione seu doce com todo o carinho para fazer parte das nossas memórias</p>
     </div>
 
     <form class="container" method="POST" enctype="multipart/form-data">
@@ -131,16 +132,16 @@ if($_POST){
       <div class="file-field input-field">
         <div class="btn">
           <span><i class="material-icons">add_a_photo</i></span>
-          <input type="file">
+          <input type="file" name="foto">
         </div>
         <div class="file-path-wrapper">
-          <input class="file-path validate" name="foto" type="text" placeholder=" mostra uma foto =D">
+          <input class="file-path validate" type="text" placeholder=" mostra uma foto =D">
           <?= ($foto_OK ? '' : '<span class="erro">Queremos uma foto!</span>'); ?>
         </div>
       </div>
       <!-- Botão de envio do formulário -->
       <div class="center">
-        <button class="btn waves-effect waves-light" type="submit" name="action">Criar
+        <button class="btn waves-effect waves-light" name="foto" type="submit" name="action">Criar
           <i class="material-icons right">send</i>
         </button>
       </div>
