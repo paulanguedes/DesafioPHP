@@ -47,13 +47,13 @@ function listaProdutos(){
 }
 
 // == FUNÇÃO PARA GUARDAR NOVO PRODUTO NA LISTA == 
-function novoProduto($produto, $descricao, $preco, $foto){
+function novoProduto($id, $produto, $descricao, $preco, $foto){
   
   // Carregar a lista de produtos usando a função anterior
   $produtos = listaProdutos();
  
   // Criar um array associativo com os dados inputados por parâmetro
-  $arrayProdutos = ['produto'=>$produto, 'descricao'=>$descricao, 'preco'=>$preco, 'foto'=>$foto];
+  $arrayProdutos = ['id'=>$id, 'produto'=>$produto, 'descricao'=>$descricao, 'preco'=>$preco, 'foto'=>$foto];
 
   // Adicionar os dados inputados ao array criado
   $produtos[]= $arrayProdutos;
@@ -67,22 +67,7 @@ function novoProduto($produto, $descricao, $preco, $foto){
       // Salvar essa string no arquivo produtos.json
       file_put_contents('../json/produtos.json', $stringProdutos);
   }
-}
-
-function showProduto($id){
-  
-  // Trazer o array de produtos para dentro da função
-  $produtos = listaProdutos();
-
-  // Percorrer o array procurando o produto que corresponde ao que o usuário quer ver
-  foreach ($produtos as $produto) {
-    if ($produto['produto'] == $id) {
-      return $produto;
-    }
-  }
-  // Se não encontrar, retorna falso
-  return false;
-}
+} 
 
 // === FUNÇÃO PARA BUSCAR O PRODUTO POR ID ===
 function produtoID($id){

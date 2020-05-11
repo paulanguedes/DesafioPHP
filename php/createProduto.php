@@ -38,10 +38,6 @@ if($_POST){
   if (!is_numeric($preco)) {
     $preco_OK = false;
   }
-  // -- VALIDANDO FOTO --
-  if (empty($foto)) {
-    $foto_OK = false;
-  }
 
   if($_FILES){
 
@@ -55,6 +51,8 @@ if($_POST){
 
     // Salvar o nome do arquivo em $foto
     $foto = "doce".$fileName;
+    }else{
+      $foto_OK = false;
     }
 
   // -- SE ESTIVER TUDO VALIDADO, DIRECIONAR A UMA PÁGINA --
@@ -65,6 +63,7 @@ if($_POST){
 
     // -- SALVANDO O NOVO PRODUTO --
     novoProduto($id, $produto, $descricao, $preco, $foto);
+    
     header('location: ../json/produtos.json');
   }
 }
@@ -125,7 +124,7 @@ if($_POST){
       <div class="input-field col s6">
         <i class="material-icons prefix">local_offer</i>
         <input id="icon_prefix" name="preco" type="number" class="validate" placeholder=" preço">
-        <?= ($preco_OK ? '' : '<span class="erro">O-Oh! O preço precisa ser um número.</span>'); ?>
+        <?= ($preco_OK ? '' : '<span class="erro">O-Oh! O preço precisa ser um número inteiro.</span>'); ?>
         <label for="icon_prefix"></label>
       </div>
       <!-- Campo de foto -->
@@ -169,7 +168,6 @@ if($_POST){
   </div>
 </footer>
 
-<script src="../js/jQuery341.js"></script>
 <script src="../js/materialize.min.js"></script>
 <script src="../js/index.js"></script>
 </body>

@@ -476,3 +476,26 @@ body .createUsuario form div{
     text-transform: lowercase !important;
     font-size: 1.2rem;
 }
+
+
+/* ==== CADASTRO PRODUTO SUCESSO ==== */
+.produtoOK{
+    height: 500px;
+    background-image: url(../img/novodoce.png);
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-position: right;
+}
+.produtoOK h6{
+    font-size: 1.8rem;
+    font-weight: lighter;
+    color: #363759;
+    margin-top: 150px;
+    text-align: left;
+}
+.produtoOK a{
+    font-size: 1.4rem;
+    font-weight: lighter;
+    color: #F29441;
+    text-align: left;
+}

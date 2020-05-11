@@ -91,7 +91,6 @@ $produtos = listaProdutos();
     </div>
   </footer>
 
-<script src="../js/jQuery341.js"></script>
 <script src="../js/materialize.min.js"></script>
 <script src="../js/index.js"></script>
 </body>
