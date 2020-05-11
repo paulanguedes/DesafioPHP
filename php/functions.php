@@ -83,4 +83,21 @@ function showProduto($id){
   // Se não encontrar, retorna falso
   return false;
 }
+
+// === FUNÇÃO PARA BUSCAR O PRODUTO POR ID ===
+function produtoID($id){
+
+  // Trazer o array associativo de produtos
+  $produtos = listaProdutos();
+  
+  // Percorrer o array que procura o produto com o id solicitado
+  foreach ($produtos as $produto) {
+    if ($produto['id'] == $id) {
+      return $produto;
+    }
+  }
+  return false;
+}
+
+
 ?>

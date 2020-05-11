@@ -9,7 +9,11 @@ if (!$_SESSION) {
   header('location: index.php');
 }
 
-//Capturar o id solicitado
+//Capturar o id do produto solicitado
+$id = $_GET['id'];
+
+// Carregar as informações do produto que tem o id
+$produto = produtoID($id);
 
 ?>
 
@@ -46,14 +50,14 @@ if (!$_SESSION) {
       <div class="card col s12">
         <img class="logoreceita" src="../img/Logo2.png" alt="Logo Fatias de Memória">
         <div class="card-title">
-          <span class="card-title">brigadeiro de panela</span>
+          <span class="card-title"> <?= $produto['produto'] ?> </span>
         </div>
         <div class="card-content">
-          <p>brigadeiro caseiro feito no tacho</p>
-          <p>R$ 5,00</p>
+          <p> <?= $produto['descricao'] ?> </p>
+          <p>R$ <?= number_format($produto['preco'], 2, ',', '.') ?> </p>
         </div>
         <div class="card-image">
-          <img src='../img/doceBrigadeiro.jpg'>
+          <img src=' <?= $produto['foto'] ?> '>
         </div>
         <div class="card-action">
           <a href="editProduto.php">editar</a>

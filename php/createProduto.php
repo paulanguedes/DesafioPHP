@@ -60,8 +60,11 @@ if($_POST){
   // -- SE ESTIVER TUDO VALIDADO, DIRECIONAR A UMA PÁGINA --
   if ($produto_OK && $descricao_OK && $preco_OK && $foto_OK) {
 
+    // -- CRIAR ID PARA O PRODUTO --
+    $id = uniqid();
+
     // -- SALVANDO O NOVO PRODUTO --
-    novoProduto($produto, $descricao, $preco, $foto);
+    novoProduto($id, $produto, $descricao, $preco, $foto);
     header('location: ../json/produtos.json');
   }
 }
