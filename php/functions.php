@@ -11,13 +11,13 @@ function listaUsuarios(){
   }
   
   // == FUNÇÃO PARA GUARDAR NOVO USUÁRIO NA LISTA == 
-  function novoUsuario($nome, $email, $senha, $fotousuario){
+  function novoUsuario($id, $nome, $email, $senha, $fotousuario){
 
     // Carregar a lista de usuarios usando a função anterior
     $usuarios = listaUsuarios();
 
     // Criar um array associativo com os dados passados por parâmetro
-    $arrayUsuarios = ['nome'=>$nome, 'email'=>$email, 'senha'=> password_hash($senha, PASSWORD_DEFAULT), 'fotousuario'=>$fotousuario];
+    $arrayUsuarios = ['id'=>$id, 'nome'=>$nome, 'email'=>$email, 'senha'=> password_hash($senha, PASSWORD_DEFAULT), 'fotousuario'=>$fotousuario];
 
     // Adicionar os dados inputados ao array criado
     $usuarios[]= $arrayUsuarios;
@@ -31,6 +31,20 @@ function listaUsuarios(){
         // Salvar essa string no arquivo usuarios.json
         file_put_contents('../json/usuarios.json', $stringUsuarios);
     }
+  }
+
+  // === FUNÇÃO PARA BUSCAR O USUARIO POR ID ===
+  function usuarioID($id){
+
+    // Trazer o array associativo de usuarios
+    $usuarios = listaUsuarios();
+    
+    // Percorrer o array procurando o usuario com o id solicitado
+    foreach ($usuarios as $usuario) {
+      if ($usuario['id'] == $id) {
+        return $usuario;
+      }
+    }return false;
   }
 
   // == CRIANDO UMA LISTA DE PRODUTOS == 

@@ -1,7 +1,6 @@
 <?php
 include('functions.php');
 
+echo uniqid();
 
-var_dump($_FILES);
-exit;
 ?>

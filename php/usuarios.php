@@ -4,13 +4,13 @@ include('functions.php');
 
 // == TESTAR SE O USUÁRIO TEM PERMISSÃO DE ACESSO ==
 if (!$_SESSION) {
-  
-    // -- Caso negativo, redireciona para a página de login -- 
-    header('location: index.php');
-  }
-  
+  // -- Caso negativo, redireciona para a página de login -- 
+  header('location: index.php');
+}
+
 // == CHAMANDO A FUNÇÃO PARA LISTAR OS USUÁRIOS ==
 $usuarios = listaUsuarios();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,13 +27,13 @@ $usuarios = listaUsuarios();
   <div class="home">
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo"><img width="100px" src="../img/Logo2.png" alt="Logo do site"></a>
+        <a href="home.php" class="brand-logo"><img width="100px" src="../img/Logo2.png" alt="Logo do site"></a>
         <div class="nav-icons">
           <ul class="nav-icons-list tabs right hide-on-med-and-down">
-            <li class="icon-name tab col s3 tooltipped"><a href="./produtos.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="doces">view_module</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="./createProduto.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="adicionar doce">library_add</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="./createUsuario.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="adicionar usuário">person_add</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="./index.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="encerrar sessão">face</i></a></li>
+            <li class="icon-name tab col s3 tooltipped"><a href="produtos.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="doces">view_module</i>Hover me!</a></li>
+            <li class="icon-name tab col s3 tooltipped"><a href="createProduto.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="adicionar doce">library_add</i>Hover me!</a></li>
+            <li class="icon-name tab col s3 tooltipped"><a href="createUsuario.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="adicionar usuário">person_add</i>Hover me!</a></li>
+            <li class="icon-name tab col s3 tooltipped"><a href="index.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="encerrar sessão">face</i></a></li>
           </ul>
         </div>
       </div>
@@ -60,8 +60,8 @@ $usuarios = listaUsuarios();
         <?php foreach($usuarios as $usuario): ?>
         <td class="tablevalue"> <?=$usuario['nome']?> </td>
         <td class="tablevalue"> <?=$usuario['email']?> </td>
-        <td class="tablevalue center"> <img src="<?=$usuario['fotousuario']?>" alt="Foto <?=$usuario['nome']?>"> </td>
-        <td class="tablevalue center"><a href='editUsuario.php?id=<?=$usuario['nome']?>' class="botaoeditar btn-floating btn-small waves-effect waves-light"><i class="material-icons">edit</i></a> </td>
+        <td class="tablevalue center"> <img src="<?= $usuario['fotousuario'] ?>"> </td>
+        <td class="tablevalue center"><a href="editUsuario.php?id=<?=$usuario['id']?>" class="botaoeditar btn-floating btn-small waves-effect waves-light"><i class="material-icons">edit</i></a> </td>
         <td class="tablevalue center"><a class="botaodeletar btn-floating btn-small waves-effect waves-light"><i class="material-icons">remove</i></a> </td>
       </tr>
       <?php endforeach;?>

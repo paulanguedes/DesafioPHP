@@ -53,19 +53,23 @@ if($_POST){
     $error = $_FILES['fotousuario']['error'];
 
     // Salvar o arquivo numa pasta do meu sistema
-    move_uploaded_file($tmpName,'../img/imgUsuarios/'.$fileName);
+    move_uploaded_file($tmpName,'../img/imgUsuarios/');
 
     // Salvar o nome do arquivo em $fotousuario
     $fotousuario = '../img/imgUsuarios/'.$fileName;
 
     } else {
-        $fotousuario = null;
+      $fotousuario == null;
     }
 
   // -- SE ESTIVER TUDO VALIDADO, DIRECIONAR A UMA PÁGINA --
   if ($nome_OK && $email_OK && $senha_OK && $confirmacao_OK) {
+
+    // -- CRIAR ID PARA O USUARIO --
+    $id = uniqid();
+
     // -- SALVANDO O NOVO USUÁRIO --
-    novoUsuario($nome, $email, $senha, $fotousuario);
+    novoUsuario($id, $nome, $email, $senha, $fotousuario);
     header('location: sucessoAddUsuario.php');
   }
 } 

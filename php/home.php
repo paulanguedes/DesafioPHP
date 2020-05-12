@@ -19,10 +19,10 @@ session_start();
         <a href="#" class="brand-logo"><img width="100px" src="../img/Logo2.png" alt="Logo do site"></a>
         <div class="nav-icons">
           <ul class="nav-icons-list tabs right hide-on-med-and-down">
-            <li class="icon-name tab col s3 tooltipped"><a href="./produtos.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="doces">view_module</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="./createProduto.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="adicionar doce">library_add</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="./createUsuario.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="adicionar usuário">person_add</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="./index.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="encerrar sessão">face</i></a></li>
+            <li class="icon-name tab col s3"><a href="produtos.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="doces">view_module</i></a></li>
+            <li class="icon-name tab col s3"><a href="createProduto.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="adicionar doce">library_add</i></a></li>
+            <li class="icon-name tab col s3"><a href="createUsuario.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="adicionar usuário">person_add</i></a></li>
+            <li class="icon-name tab col s3"><a href="index.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="encerrar sessão">face</i></a></li>
           </ul>
         </div>
       </div>
@@ -74,7 +74,11 @@ session_start();
 
   </footer>
 
-
+<script>
+  $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+</script>
 <script src="../js/materialize.min.js"></script>
 <script src="../js/index.js"></script>
 </body>

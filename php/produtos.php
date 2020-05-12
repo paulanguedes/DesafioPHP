@@ -32,9 +32,9 @@ $produtos = listaProdutos();
         <div class="nav-icons">
           <ul class="nav-icons-list tabs right hide-on-med-and-down">
             <li class="icon-name tab col s3"><i class="material-icons">view_module</i>Hover me!</li>
-            <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="novo produto"><a href="./createProduto.php"><i class="material-icons">library_add</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="novo usuário"><a href="./createUsuario.php"><i class="material-icons">person_add</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="encerrar sessão"><a href="./index.php"><i class="material-icons">face</i></a>Hover me!</li>
+            <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="novo produto"><a href="createProduto.php"><i class="material-icons">library_add</i></a></li>
+            <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="novo usuário"><a href="createUsuario.php"><i class="material-icons">person_add</i></a></li>
+            <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="encerrar sessão"><a href="index.php"><i class="material-icons">face</i></a></li>
           </ul>
         </div>
       </div>

@@ -395,6 +395,70 @@ body .createUsuario form div{
 }
 
 
+/* ==== EDITAR USUARIO ==== */
+.editUsuario{
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    position: relative;
+    left: 150px;
+}
+.editUsuario .card-stacked{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.editUsuario .card-stacked img{
+    width: 200px;
+}
+.editUsuario .card-content{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.editUsuario .card-image img{
+    width: 100% !important;
+}
+.editUsuario .input-field input[type=text]:focus + label {
+    color: #363759;
+}
+.editUsuario .input-field input[type=email]:focus + label {
+    color: #363759;
+}
+.editUsuario .input-field input[type=text]:focus {
+    border-bottom: 1px solid #363759;
+    box-shadow: 0 1px 1px 0 rgb(235, 235, 235);
+}
+.editUsuario .input-field input[type=email]:focus {
+border-bottom: 1px solid #363759;
+box-shadow: 0 1px 1px 0 rgb(235, 235, 235);
+}
+.editUsuario .input-field input[type=text].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 1px 0 rgb(235, 235, 235);
+}
+.editUsuario .input-field input[type=email].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 1px 0 rgb(235, 235, 235);
+}
+.editUsuario .file-field .btn{
+    background-color: #363759;
+}
+.editUsuario .file-field .btn span{
+    font-size: small;
+}
+.editUsuario .card-action{
+    border: none;
+    width: 100%;
+    text-align: center;
+}
+.editUsuario .card-action button{
+    background-color: #363759;
+}
+
+
+
 /* ==== PRODUTOS ==== */
 .listaProdutos{
     margin: 20px 0;
