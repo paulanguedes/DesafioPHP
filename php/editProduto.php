@@ -64,7 +64,7 @@ $produto = produtoID($id);
 
         <div class="card-content row">
           <div class="input-field col s12">
-            <input value="R$ <?= number_format($produto['preco'], 2, ',', '.') ?> " id="first_name2" type="number" class="validate">
+            <input value="R$ <?= number_format($produto['preco'], 2, ',', '.') ?> " id="first_name2" type="text" class="validate">
             <label class="active" for="first_name2">preço</label>
           </div>
         </div>
@@ -85,7 +85,6 @@ $produto = produtoID($id);
 
         <div class="card-action">
           <a href="#" class="waves-effect waves-light btn">editar</a>
-          <a href="#" class="waves-effect waves-light btn">deletar</a>
         </div>
       </div>
   

@@ -593,14 +593,7 @@ body .createProduto form div{
 .editProduto .card-content .input-field input[type=text]:focus + label {
     color: #363759;
 }
-.editProduto .card-content .input-field input[type=number]:focus + label {
-    color: #363759;
-}
 .editProduto .card-content .input-field input[type=text]:focus {
-    border-bottom: 1px solid #363759;
-    box-shadow: 0 1px 0 0 rgb(226, 226, 226);
-}
-.editProduto .card-content .input-field input[type=number]:focus {
     border-bottom: 1px solid #363759;
     box-shadow: 0 1px 0 0 rgb(226, 226, 226);
 }
@@ -609,10 +602,6 @@ body .createProduto form div{
     box-shadow: 0 1px 0 0 rgb(226, 226, 226);
 }
 .editProduto .input-field input[type=text].valid {
-    border-bottom: 1px solid #F29441;
-    box-shadow: 0 1px 0 0 rgb(226, 226, 226);
-}
-.editProduto .input-field input[type=number].valid {
     border-bottom: 1px solid #F29441;
     box-shadow: 0 1px 0 0 rgb(226, 226, 226);
 }

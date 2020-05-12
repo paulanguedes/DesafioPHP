@@ -58,7 +58,7 @@ $produto = produtoID($id);
           <img src=' <?= $produto['foto'] ?> '>
         </div>
         <div class="card-action">
-          <a href="editProduto.php?id=<?= $produto['produto'] ?>">editar</a>
+          <a href="editProduto.php?id=<?= $produto['id'] ?>">editar</a>
           <a href="#">deletar</a>
         </div>
       </div>
