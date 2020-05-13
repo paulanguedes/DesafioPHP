@@ -9,13 +9,6 @@ if (!$_SESSION) {
   header('location: index.php');
 }
 
-// == GUARDANDO DADOS DIGITADOS EM VARIÁVEIS ==
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$senha = $_POST['senha'];
-$confirmacao = $_POST['confirmacao'];
-$fotousuario = $_POST['fotousuario'];
-
 // == CRIANDO VARIÁVEIS DE CONTROLE DE ERRO ==
 $nome_OK = true;
 $email_OK = true;
@@ -25,6 +18,14 @@ $confirmacao_OK = true;
 // === VALIDANDO OS CAMPOS == 
 
 if($_POST){
+
+  // == GUARDANDO DADOS DIGITADOS EM VARIÁVEIS ==
+  $nome = $_POST['nome'];
+  $email = $_POST['email'];
+  $senha = $_POST['senha'];
+  $confirmacao = $_POST['confirmacao'];
+  $fotousuario = $_POST['fotousuario'];
+
   // -- VALIDANDO NOME --  
   if (empty($nome)) {
     $nome_OK = false;
@@ -44,22 +45,22 @@ if($_POST){
     $confirmacao_OK = false;
   }
   
-  // -- VERIFICANDO SE HOUVE UPLOAD DE IMAGEM DO USUÁRIO --
+  // -- upload de arquivos --
   if($_FILES){
 
-    // Separar informações úteis da global $_FILES
     $tmpName = $_FILES['fotousuario']['tmp_name'];
     $fileName = uniqid() . '-' . $_FILES['fotousuario']['name'];
     $error = $_FILES['fotousuario']['error'];
 
-    // Salvar o arquivo numa pasta do meu sistema
-    move_uploaded_file($tmpName,'../img/imgUsuarios/');
+    move_uploaded_file($tmpName,'../img/imgUsuarios/'.$fileName);
 
-    // Salvar o nome do arquivo em $fotousuario
     $fotousuario = '../img/imgUsuarios/'.$fileName;
-
+    } elseif (!$_FILES) {
+      $fotousuario = '../img/imgUsuarios/perfilpadrao.png';
     } else {
-      $fotousuario == null;
+      $fotousuario = null;
+    }{
+      
     }
 
   // -- SE ESTIVER TUDO VALIDADO, DIRECIONAR A UMA PÁGINA --

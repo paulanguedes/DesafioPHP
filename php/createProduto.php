@@ -6,12 +6,6 @@ if (!$_SESSION) {
   header('location: index.php');
 }
 
-// == variáveis de dados inputados ==
-$produto = $_POST['produto'];
-$descricao = $_POST['descricao'];
-$preco = $_POST['preco'];
-$foto = $FILE['foto'];
-
 // == variáveis de controle ==
 $produto_OK = true;
 $descricao_OK = true;
@@ -20,6 +14,13 @@ $foto_OK = true;
 
 // == validação dos dados ==
 if($_POST){
+
+  // == variáveis de dados inputados ==
+  $produto = $_POST['produto'];
+  $descricao = $_POST['descricao'];
+  $preco = $_POST['preco'];
+  $foto = $FILE['foto'];
+
   if (empty($produto)) {
     $produto_OK = false;
   }
