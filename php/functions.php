@@ -115,23 +115,27 @@ function editProduto($id){
     }return $produtos;
   }
 
-  
+  $arrayProdutos = json_decode($produtos);
 
   // Salvar essa string no arquivo produtos.json
   file_put_contents('../json/produtos.json', $produtos);
 }
 
 // FUNÇÃO PARA EXCLUIR PRODUTO
-function deletarProduto($id)
-{
-    $produtos = json_decode(file_get_contents('includes/Produtos.json'), true);
+function deletarProduto($id){
+    
+  $produtos = listaProdutos();
+
     for ($i = 0; $i <= count($produtos); $i++) {
-        if ($produtos[$i]['nome'] == $nameProduto) {
+        if ($produtos[$i]['id'] == $id) {
             unset($produtos[$i]);
-        } elseif ($produtos[$i] == $nameProduto) {
+        } elseif ($produtos[$i] == $id) {
             unset($produtos[$i]);
         }
     }
-    file_put_contents('includes/Produtos.json', json_encode($produtos));
+
+    $novoProdutos = json_encode($produtos);
+    
+    file_put_contents('../json/produtos.json', $novoProdutos);
 }
 ?>
