@@ -2,14 +2,15 @@
 session_start();
 include('functions.php');
 
-// == TESTAR SE O USUÁRIO TEM PERMISSÃO DE ACESSO ==
 if (!$_SESSION) {
-  // -- Caso negativo, redireciona para a página de login -- 
   header('location: index.php');
 }
 
-// == CHAMANDO A FUNÇÃO PARA LISTAR OS USUÁRIOS ==
 $usuarios = listaUsuarios();
+
+if ($_POST) {
+  deleteUsuario($_POST["nome"]);
+}
 
 ?>
 <!DOCTYPE html>
@@ -58,13 +59,15 @@ $usuarios = listaUsuarios();
       </tr>
       <tr>
         <?php foreach($usuarios as $usuario): ?>
-        <td class="tablevalue"> <?=$usuario['nome']?> </td>
-        <td class="tablevalue"> <?=$usuario['email']?> </td>
-        <td class="tablevalue center"> <img src="<?= $usuario['fotousuario'] ?>"> </td>
-        <td class="tablevalue center"><a href="editUsuario.php?id=<?=$usuario['id']?>" class="botaoeditar btn-floating btn-small waves-effect waves-light"><i class="material-icons">edit</i></a> </td>
-        <td class="tablevalue center"><a class="botaodeletar btn-floating btn-small waves-effect waves-light"><i class="material-icons">remove</i></a> </td>
+          <td class="tablevalue"> <?=$usuario['nome']?> </td>
+          <td class="tablevalue"> <?=$usuario['email']?> </td>
+          <td class="tablevalue center"> <img src="<?= $usuario['fotousuario'] ?>"> </td>
+          <td class="tablevalue center"><a href="editUsuario.php?id=<?=$usuario['id']?>" class="botaoeditar btn-floating btn-small waves-effect waves-light"><i class="material-icons">edit</i></a> </td>
+        <form action="#" method="post">
+          <td class="tablevalue center"><button type="hidden" name="nome" value="<?= $usuario['id'] ?>" class="botaodeletar btn-floating btn-small waves-effect waves-light"><i class="material-icons">remove</i></button> </td>
+        </form>
       </tr>
-      <?php endforeach;?>
+        <?php endforeach;?>
     </table>
 
   </section>

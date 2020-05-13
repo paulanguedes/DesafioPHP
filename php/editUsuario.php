@@ -1,8 +1,7 @@
 <?php
 session_start();
-include('functons.php');
+include('functions.php');
 
-// == ACESSO SOMENTE A USUARIO LOGADO ==
 if (!$_SESSION) {
   header('location: index.php');
 }
@@ -41,40 +40,42 @@ $usuario = usuarioID($id);
 
   <section class="editUsuario">
 
-    <div class="card">
-      <div class="card-stacked">
-        <div class="column">
-          <img src="../img/imgUsuarios/IMG_20181120_173028192.jpg">
-        </div>
-        <div class="card-content column">
-          <div class="input-field">
-            <input type="text" value="Paula Guedes" class="validate">
-            <label for="">nome completo</label>
+    <form action="#" method="post">
+      <div class="card">
+        <div class="card-stacked">
+          <div class="column">
+            <img src="<?= $usuario['fotousuario'] ?>">
           </div>
-          <div class="input-field">
-            <input type="email" value="paulanguedes@gmail.com" class="input-field validate">
-            <label for="">e-mail</label>
-          </div>
-          <div class="file-field input-field">
-            <div class="btn">
-              <span>foto</span>
-              <input type="file">
+          <div class="card-content column">
+            <div class="input-field">
+              <input type="text" name="nome" value="<?= $usuario['nome'] ?>" class="validate">
+              <label for="">nome completo</label>
             </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text">
+            <div class="input-field">
+              <input type="email" name="email" value="<?= $usuario['email'] ?>" class="input-field validate">
+              <label for="">e-mail</label>
+            </div>
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>foto</span>
+                <input type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" name="fotousuario" type="text" value="<?= $usuario['fotousuario'] ?>">
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card-action">
-          <button class="btn waves-effect waves-light" type="submit" name="action">editar
-            <i class="material-icons right">send</i>
-          </button>
-        </div>
-        <div class="card-image" >
-          <img src="../img/editarusuario.png">
+          <div class="card-action">
+            <button class="btn waves-effect waves-light" type="submit" name="action">editar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+          <div class="card-image" >
+            <img src="../img/editarusuario.png">
+          </div>
         </div>
       </div>
-    </div>
+    </form>
 
   </section>
 

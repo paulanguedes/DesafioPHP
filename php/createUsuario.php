@@ -24,7 +24,7 @@ if($_POST){
   $email = $_POST['email'];
   $senha = $_POST['senha'];
   $confirmacao = $_POST['confirmacao'];
-  $fotousuario = $_POST['fotousuario'];
+  $fotousuario = $_FILE['fotousuario'];
 
   // -- VALIDANDO NOME --  
   if (empty($nome)) {
