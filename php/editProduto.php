@@ -93,7 +93,9 @@ if ($_POST) {
         </div>
 
         <div class="card-action">
-          <a name="action" class="waves-effect waves-light btn">editar</a>
+          <button class="btn waves-effect waves-light" type="submit" name="action">editar
+            <i class="material-icons right">send</i>
+          </button>
         </div>
       
       </form>

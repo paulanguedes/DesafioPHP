@@ -545,10 +545,17 @@ body .createProduto form div{
     margin-bottom: 30px;
     width: 90%;
 }
-.showProduto .card .card-action a{
-    text-transform: lowercase !important;
-    font-size: 1.2rem;
+.showProduto .card .card-action{
+    border: none;
 }
+.showProduto .card .card-action a{
+    background-color: #363759;
+}
+.showProduto .card .card-action a:first-child{
+    margin-right: 100px;
+}
+
+
 
 
 /* ==== CADASTRO PRODUTO SUCESSO ==== */
@@ -624,8 +631,25 @@ body .createProduto form div{
 .editProduto .card-action{
     border: none;
 }
-.editProduto .card-action a{
+.editProduto .card-action button{
     background-color: #363759;
     margin-bottom: 30px;
     width: 150px;
+}
+
+
+
+/* ==== DELETAR PRODUTO ==== */
+.deleteProduto{
+    background-image: url(../img/deletarproduto.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: opacity(80%) grayscale();
+    height: 500px;
+    background-position-y: -60px;
+}
+.deleteProduto h6{
+    margin-top: 50px;
+    color: white;
+    font-size: 2rem;
 }

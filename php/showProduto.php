@@ -2,16 +2,14 @@
 session_start();
 include('functions.php');
 
-// == TESTAR SE O USUÁRIO TEM PERMISSÃO DE ACESSO ==
 if (!$_SESSION) {
   header('location: index.php');
 }
 
-//Capturar o id do produto solicitado
 $id = $_GET['id'];
-
-// Carregar as informações do produto que tem o id
 $produto = produtoID($id);
+
+
 
 ?>
 
@@ -58,8 +56,8 @@ $produto = produtoID($id);
           <img src=' <?= $produto['foto'] ?> '>
         </div>
         <div class="card-action">
-          <a href="editProduto.php?id=<?= $produto['id'] ?>">editar</a>
-          <a href="#">deletar</a>
+          <a href="editProduto.php?id=<?= $produto['id'] ?>" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">edit</i>editar</a>
+          <a href="deleteProduto.php?id=<?= $produto['id'] ?>"class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">delete</i>deletar</a>
         </div>
       </div>
   

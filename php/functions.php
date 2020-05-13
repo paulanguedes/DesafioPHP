@@ -111,14 +111,14 @@ function editProduto($id){
   foreach ($produtos as $produto) {
     if ($produto['id'] == $id) {
       $produto = $arrayEditado;
-      $produtos[$id]= $arrayEditado;
+      $produtos[$id] = $arrayEditado;
     }return $produtos;
   }
 
   $arrayProdutos = json_decode($produtos);
 
   // Salvar essa string no arquivo produtos.json
-  file_put_contents('../json/produtos.json', $produtos);
+  file_put_contents('../json/produtos.json', $arrayProdutos);
 }
 
 // FUNÇÃO PARA EXCLUIR PRODUTO
