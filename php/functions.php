@@ -98,5 +98,40 @@ function produtoID($id){
   return false;
 }
 
+// == FUNÇÃO PARA EDITAR PRODUTOS ==
+function editProduto($id){
 
+  // Trazer o array associativo de produtos
+  $produtos = listaProdutos();
+
+  // Criar um array associativo com os dados inputados por parâmetro
+  $arrayEditado = ['id'=>$id, 'produto'=>$produto, 'descricao'=>$descricao, 'preco'=>$preco, 'foto'=>$foto];
+
+  // Buscar no array o produto que tem esse id
+  foreach ($produtos as $produto) {
+    if ($produto['id'] == $id) {
+      $produto = $arrayEditado;
+      $produtos[$id]= $arrayEditado;
+    }return $produtos;
+  }
+
+  
+
+  // Salvar essa string no arquivo produtos.json
+  file_put_contents('../json/produtos.json', $produtos);
+}
+
+// FUNÇÃO PARA EXCLUIR PRODUTO
+function deletarProduto($id)
+{
+    $produtos = json_decode(file_get_contents('includes/Produtos.json'), true);
+    for ($i = 0; $i <= count($produtos); $i++) {
+        if ($produtos[$i]['nome'] == $nameProduto) {
+            unset($produtos[$i]);
+        } elseif ($produtos[$i] == $nameProduto) {
+            unset($produtos[$i]);
+        }
+    }
+    file_put_contents('includes/Produtos.json', json_encode($produtos));
+}
 ?>

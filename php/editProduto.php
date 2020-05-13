@@ -48,31 +48,33 @@ $produto = produtoID($id);
       <div class="card">
         <img class="logoreceita" src="../img/Logo2.png" alt="Logo Fatias de Memória">
 
+      <form action="" method="post" enctype="multipart/form-data">
+      
         <div class="card-content row">
           <div class="input-field col s12">
-            <input value="<?= $produto['produto'] ?>" id="first_name2" type="text" class="validate">
-            <label class="active" for="first_name2">nome</label>
+            <input value="<?= $produto['produto'] ?>" name="produto" type="text" class="validate">
+            <label class="active" for="produto">nome</label>
           </div>
         </div>
 
         <div class="card-content row">
           <div class="input-field col s12">
-            <input value="<?= $produto['descricao'] ?>" id="first_name2" type="text" class="validate">
-            <label class="active" for="first_name2">sobre o doce</label>
+            <input value="<?= $produto['descricao'] ?>" name="descricao" type="text" class="valnameate">
+            <label class="active" for="descricao">sobre o doce</label>
           </div>
         </div>
 
         <div class="card-content row">
           <div class="input-field col s12">
-            <input value="R$ <?= number_format($produto['preco'], 2, ',', '.') ?> " id="first_name2" type="text" class="validate">
-            <label class="active" for="first_name2">preço</label>
+            <input value="R$ <?= number_format($produto['preco'], 2, ',', '.') ?> " name="preco" type="text" class="validate">
+            <label class="active" for="preco">preço</label>
           </div>
         </div>
 
         <div class="file-field card-content input-field">
           <div class="btn">
             <span>imagem</span>
-            <input type="file">
+            <input type="file" name="foto">
           </div>
           <div class="file-path-wrapper">
             <input class="file-path validate" type="text">
@@ -80,13 +82,14 @@ $produto = produtoID($id);
         </div>
         
         <div class="card-image">
-          <img src=' <?= $produto['foto'] ?> '>
+          <img src='<?= $produto['foto'] ?>'>
         </div>
 
         <div class="card-action">
           <a href="#" class="waves-effect waves-light btn">editar</a>
         </div>
-      </div>
+      
+      </form>
   
   </section>
 

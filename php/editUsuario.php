@@ -8,7 +8,7 @@ if (!$_SESSION) {
 }
 
 $id = $_GET['id'];
-// $usuario = usuarioID($id);
+$usuario = usuarioID($id);
 
 ?>
 <!DOCTYPE html>
