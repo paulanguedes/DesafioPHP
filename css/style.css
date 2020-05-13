@@ -14,11 +14,10 @@ main{
 
 /* ==== NAVBAR ==== */
 .home{
-    z-index: 1000;
+    z-index: 900;
 }
 .home nav{
     height: 125px;
-    position: sticky;
     top: 0;
 }
 .home .brand-logo img{
@@ -31,19 +30,22 @@ main{
 .home .nav-icons{
     position: relative;
     left: 60%;
-    top: 55px;
+    top: 65px;
     width: fit-content;
 }
 .nav-icons-list{
     background-color: #363759;
 }
-.home .material-icons{
-    color: white;
-    margin: 0 25px;
+.home .nav-icons-list li a {
+    background-color: #363759;
+    font-size: 1.2rem;
+    margin-right: 15px;
 }
-.home .material-icons:hover {
+.home .nav-icons-list li a:hover {
     color: #F2D9BB;
+    background-color: #363759;
 }
+
 
 /* ==== FOOTER ==== */
 footer{
@@ -644,9 +646,9 @@ body .createProduto form div{
     background-image: url(../img/deletarproduto.png);
     background-size: cover;
     background-repeat: no-repeat;
-    filter: opacity(80%) grayscale();
     height: 500px;
     background-position-y: -60px;
+    filter: opacity(80%) grayscale();
 }
 .deleteProduto h6{
     margin-top: 50px;

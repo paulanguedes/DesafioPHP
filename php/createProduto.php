@@ -6,22 +6,20 @@ if (!$_SESSION) {
   header('location: index.php');
 }
 
-// == GUARDANDO DADOS DIGITADOS EM VARIÁVEIS ==
+// == variáveis de dados inputados ==
 $produto = $_POST['produto'];
 $descricao = $_POST['descricao'];
 $preco = $_POST['preco'];
 $foto = $FILE['foto'];
 
-// == CRIANDO VARIÁVEIS DE CONTROLE DE ERRO ==
+// == variáveis de controle ==
 $produto_OK = true;
 $descricao_OK = true;
 $preco_OK = true;
 $foto_OK = true;
 
-// === VALIDANDO OS CAMPOS == 
+// == validação dos dados ==
 if($_POST){
-
-  // -- VALIDANDO NOME DO PRODUTO --
   if (empty($produto)) {
     $produto_OK = false;
   }
@@ -31,36 +29,28 @@ if($_POST){
   if (strlen($descricao)>50) {
     $descricao_OK = false;
   }
-  // -- VALIDANDO PREÇO --
   if (!is_numeric($preco)) {
     $preco_OK = false;
   }
 
+  // == upload de foto ==
   if($_FILES){
 
-    // Separar informações úteis da global $_FILES
     $tmpName = $_FILES['foto']['tmp_name'];
     $fileName = uniqid() . '-' . $_FILES['foto']['name'];
     $error = $_FILES['foto']['error'];
 
-    // Salvar o arquivo numa pasta do meu sistema
     move_uploaded_file($tmpName,'../img/'.$fileName);
 
-    // Salvar o nome do arquivo em $foto
     $foto = '../img/'.$fileName;
     }else{
       $foto_OK = false;
     }
 
-  // -- SE ESTIVER TUDO VALIDADO, DIRECIONAR A UMA PÁGINA --
+  // == salvar no banco de dados ==
   if ($produto_OK && $descricao_OK && $preco_OK && $foto_OK) {
-
-    // -- CRIAR ID PARA O PRODUTO --
     $id = uniqid();
-
-    // -- SALVANDO O NOVO PRODUTO --
     novoProduto($id, $produto, $descricao, $preco, $foto);
-
     header('location: sucessoAddProduto.php');
   }
 }
@@ -72,23 +62,23 @@ if($_POST){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar produto</title>
+    <title>Fatias de Memória</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" />
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-  <div class="home">
+<div class="home">
     <nav>
       <div class="nav-wrapper">
         <a href="home.php" class="brand-logo"><img width="100px" src="../img/Logo2.png" alt="Logo do site"></a>
         <div class="nav-icons">
-          <ul class="nav-icons-list tabs right hide-on-med-and-down">
-            <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="lista de produtos"><a href="./produtos.php"><i class="material-icons">view_module</i>Hover me!</a></li>
-            <li class="icon-name tab col s3"><i class="material-icons" >library_add</i>Hover me!</li>
-            <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="novo usuário"><a href="./createUsuario.php"><i class="material-icons">person_add</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped" data-position="bottom" data-tooltip="encerrar sessão"><a href="./index.php"><i class="material-icons">face</i>Hover me!</a></li>
+          <ul class="nav-icons-list tabs right">
+            <li><a href="produtos.php">produtos</a></li>
+            <li><a href="createProduto.php">criar produto</a></li>
+            <li><a href="createUsuario.php">criar usuário</a></li>
+            <li><a href="index.php">logout</a></li>
           </ul>
         </div>
       </div>

@@ -126,16 +126,13 @@ function deletarProduto($id){
     
   $produtos = listaProdutos();
 
-    for ($i = 0; $i <= count($produtos); $i++) {
-        if ($produtos[$i]['id'] == $id) {
-            unset($produtos[$i]);
-        } elseif ($produtos[$i] == $id) {
-            unset($produtos[$i]);
-        }
-    }
+  for ($i = 0; $i <= count($produtos); $i++) {
+    if ($produtos[$i]['id'] == $id) {
+        unset($produtos[$i]);
+    }return $produtos;
+  }
 
-    $novoProdutos = json_encode($produtos);
-    
-    file_put_contents('../json/produtos.json', $novoProdutos);
+  $novoProdutos = json_encode($produtos);
+  file_put_contents('../json/produtos.json', $novoProdutos);
 }
 ?>
