@@ -2,8 +2,6 @@
 session_start();
 include('functions.php');
 
-
-// == ACESSO SOMENTE A USUARIOS LOGADOS ==
 if (!$_SESSION) {
   header('location: index.php');
 }
@@ -133,13 +131,13 @@ if($_POST){
           <input type="file" name="foto">
         </div>
         <div class="file-path-wrapper">
-          <input class="file-path validate" type="text" placeholder=" mostra uma foto =D">
+          <input class="file-path validate" name="foto" type="text" placeholder=" mostra uma foto =D">
           <?= ($foto_OK ? '' : '<span class="erro">Queremos uma foto!</span>'); ?>
         </div>
       </div>
       <!-- Botão de envio do formulário -->
       <div class="center">
-        <button class="btn waves-effect waves-light" name="foto" type="submit" name="action">Criar
+        <button class="btn waves-effect waves-light" type="submit" name="action">Criar
           <i class="material-icons right">send</i>
         </button>
       </div>

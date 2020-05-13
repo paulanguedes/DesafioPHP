@@ -2,16 +2,23 @@
 session_start();
 include('functions.php');
 
-// == TESTAR SE O USUÁRIO TEM PERMISSÃO DE ACESSO ==
 if (!$_SESSION) {
   header('location: index.php');
 }
 
-//Capturar o id do produto solicitado
 $id = $_GET['id'];
-
-// Carregar as informações do produto que tem o id
 $produto = produtoID($id);
+
+if ($_POST) {
+  $id = $_GET['id'];
+  $produto = $_POST['produto'];
+  $descricao = $_POST['descricao'];
+  $preco = $_POST['preco'];
+  $foto = $FILE['foto'];
+
+  editProduto($id, $produto, $descricao, $preco, $foto);
+  header('location: produtos.php');
+}
 
 ?>
 
@@ -33,10 +40,10 @@ $produto = produtoID($id);
         <a href="home.php" class="brand-logo"><img width="100px" src="../img/Logo2.png" alt="Logo do site"></a>
         <div class="nav-icons">
           <ul class="nav-icons-list tabs right hide-on-med-and-down">
-            <li class="icon-name tab col s3 tooltipped"><a href="produtos.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="lista de produtos">view_module</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="createProduto.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="novo produto">library_add</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="createUsuario.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="novo usuário">person_add</i>Hover me!</a></li>
-            <li class="icon-name tab col s3 tooltipped"><a href="index.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="encerrar sessão">face</i></a></li>
+            <li class="icon-name tab col s3"><a href="produtos.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="lista de produtos">view_module</i></a></li>
+            <li class="icon-name tab col s3"><a href="createProduto.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="novo produto">library_add</i></a></li>
+            <li class="icon-name tab col s3"><a href="createUsuario.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="novo usuário">person_add</i></a></li>
+            <li class="icon-name tab col s3"><a href="index.php"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="encerrar sessão">face</i></a></li>
           </ul>
         </div>
       </div>
@@ -48,7 +55,7 @@ $produto = produtoID($id);
       <div class="card">
         <img class="logoreceita" src="../img/Logo2.png" alt="Logo Fatias de Memória">
 
-      <form action="" method="post" enctype="multipart/form-data">
+      <form action="produtos.php" method="post" enctype="multipart/form-data">
       
         <div class="card-content row">
           <div class="input-field col s12">
@@ -77,7 +84,7 @@ $produto = produtoID($id);
             <input type="file" name="foto">
           </div>
           <div class="file-path-wrapper">
-            <input class="file-path validate" type="text">
+            <input class="file-path validate" value="<?= $produto['foto'] ?>" type="text">
           </div>
         </div>
         
@@ -86,7 +93,7 @@ $produto = produtoID($id);
         </div>
 
         <div class="card-action">
-          <a href="#" class="waves-effect waves-light btn">editar</a>
+          <a name="action" class="waves-effect waves-light btn">editar</a>
         </div>
       
       </form>
