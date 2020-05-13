@@ -1,18 +1,18 @@
 <?php
 session_start();
+
 include('functions.php');
 
+// == TESTAR SE O USUÁRIO TEM PERMISSÃO DE ACESSO ==
 if (!$_SESSION) {
+  
+  // -- Caso negativo, redireciona para a página de login -- 
   header('location: index.php');
 }
 
-$id = $_GET['id'];
-$produto = produtoID($id);
-
-
+$produtos = listaProdutos();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,26 +41,35 @@ $produto = produtoID($id);
     </nav>
   </div>
 
-  <section class="showProduto container center">
-  
-      <div class="card col s12">
-        <img class="logoreceita" src="../img/Logo2.png" alt="Logo Fatias de Memória">
-        <div class="card-title">
-          <span class="card-title"> <?= $produto['produto'] ?> </span>
-        </div>
-        <div class="card-content">
-          <p> <?= $produto['descricao'] ?> </p>
-          <p>R$ <?= number_format($produto['preco'], 2, ',', '.') ?> </p>
-        </div>
-        <div class="card-image">
-          <img src=' <?= $produto['foto'] ?> '>
-        </div>
-        <div class="card-action">
-          <a href="editProduto.php?id=<?= $produto['id'] ?>" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">edit</i>editar</a>
-          <a href="deleteProduto.php?id=<?= $produto['id'] ?>"class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">delete</i>deletar</a>
-        </div>
-      </div>
-  
+  <section class="listaProdutos">
+    <div class="tituloinput">
+        <h5 class="center">doces e memórias</h5>
+        <p class="center">veja aqui todos os doces adicionados pelos habitantes desse mundo açucarado</p>
+    </div>
+
+  <section class="container center">
+
+    <table>
+      <tr>
+        <th class="tablelable">doce</th>
+        <th class="tablelable">sobre</th>
+        <th class="tablelable">preço</th>
+        <th class="tablelable center">saiba mais</th>
+      </tr>
+      <tr>
+        <?php foreach($produtos as $produto): ?>
+        <td class="tablevalue"> <?=$produto['produto']?> </td>
+        <td class="tablevalue"> <?=$produto['descricao']?> </td>
+        <td class="tablevalue"> R$ <?=number_format($produto['preco'], 2, ',', '.') ?> </td>
+        <td class="tablevalue center"><a href="showProduto.php?id=<?=$produto['id']?>" class="botaomais btn-floating btn-small waves-effect waves-light"><form method="get"></form><i class="material-icons">add</i></a> </td>
+      </tr>
+      <?php endforeach;?>
+    </table>
+
+  </section>
+
+    
+
   </section>
 
   <footer class="page-footer">
@@ -82,7 +91,6 @@ $produto = produtoID($id);
     </div>
   </footer>
 
-<script src="../js/jQuery341.js"></script>
 <script src="../js/materialize.min.js"></script>
 <script src="../js/index.js"></script>
 </body>

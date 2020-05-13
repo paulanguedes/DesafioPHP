@@ -1,3 +1,4 @@
+/* ==== BODY ==== */
 *{
     font-family: 'Manrope', sans-serif;
     font-size: 20px;
@@ -11,117 +12,646 @@ main{
     flex: 1 0 auto;
 }
 
-/* ==== HOME ==== */
+/* ==== NAVBAR ==== */
+.home{
+    z-index: 900;
+}
 .home nav{
     height: 125px;
-    position: sticky;
     top: 0;
 }
-.home .brand-logo{
-    margin: 10px;
+.home .brand-logo img{
+    height: 120px;
+    width: 300px;
 }
 .home .nav-wrapper{
     background-color: #363759;
 }
 .home .nav-icons{
     position: relative;
-    top: 55px;
     left: 60%;
+    top: 65px;
+    width: fit-content;
 }
 .nav-icons-list{
     background-color: #363759;
 }
-.home .material-icons{
-    color: white;
-    margin: 0 25px;
+.home .nav-icons-list li a {
+    background-color: #363759;
+    font-size: 1.2rem;
+    margin-right: 15px;
 }
-.home .material-icons:hover {
+.home .nav-icons-list li a:hover {
     color: #F2D9BB;
+    background-color: #363759;
 }
-.home footer{
-    position: relative;
+
+
+/* ==== FOOTER ==== */
+footer{
+    position: sticky;
     top: 300px;
 }
-.home .page-footer{
+.page-footer{
     background-image: url(../img/backgroundfooter.png);
     background-repeat: no-repeat;
     background-size: cover;
     text-align: right;
 }
-.home .page-footer .socialtitle h5{
+.page-footer .socialtitle h5{
     font-size: 1.4rem;
     font-weight: 700;
     color: #363759;
-    text-shadow: 1px 1px 1px #F2D9BB;
+    text-shadow: 1px 1px 3px #F2D9BB;
 }
-.home .page-footer .sociallinks ul li a{
+.page-footer .sociallinks ul li a{
     font-size: 1.3rem;
     font-weight: 600;
     list-style: none;
     color: #363759;
-    text-shadow: 1px 1px 1px #F2D9BB;
+    text-shadow: 1px 1px 3px #F2D9BB;
 }
-.home .footer-copyright{
+.footer-copyright div{
+    font-size: 1.1rem;
+    font-weight: 500;
     text-align: right;
     color: #363759;
 }
-.home .footer-copyright div{
-    font-size: 1.1rem;
+
+/* ==== PRINCIPAL ==== */
+.principal{
+    padding: 20px;
+}
+.principal h5{
+    margin: 30px 0;
+    color: #363759;
     font-weight: 500;
+    font-size: 2rem;
+}
+.principal p{
+    margin: 30px 0;
+    color: #616161;
+    font-size: 1.2rem;
+    font-weight: lighter;
+    line-height: 2.8rem;
 }
 
-/* CREATE PRODUTO */
-.createProduto div form{
-    width: 50%;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+/* ==== LOGIN ==== */
+#paginalogin{
+    background-image: url(../img/backgroundlogin.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.createProduto .tituloform{
-    margin: 20px;
+.login{
+    background-color: white;
+    box-shadow: 3px 3px 6px 1px #eeeeee;
+    border-radius: 100px;
+    margin: 50px 0;
+    width: 60%;
+    align-self: center;
 }
-.createProduto .input-field{
+.login h5{
+    color: #363759;
+    margin-bottom: 30px;
+}
+.login .input-field label {
+    color: #9e9e9e;
+    font-weight: 500;
+}
+.login .input-field input[type=email]:focus {
+    border-bottom: 1px solid #F2D9BB;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.login .input-field input[type=text]:focus {
+    border-bottom: 1px solid #F2D9BB;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.login .input-field input[type=password]:focus {
+    border-bottom: 1px solid #F2D9BB;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.login .input-field input[type=email]:focus + label {
+    color: #F2D9BB;
+}
+.login .input-field input[type=text]:focus + label {
+    color: #F2D9BB;
+}
+.login .input-field input[type=password]:focus + label {
+    color: #F2D9BB;
+}
+.login .input-field input[type=email].valid {
+    border-bottom: 1px solid #F2D9BB;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.login .input-field input[type=text].valid {
+    border-bottom: 1px solid #F2D9BB;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.login .input-field input[type=password].valid {
+    border-bottom: 1px solid #F2D9BB;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.login button{
+    background-color: #F2D9BB;
+    color: #363759;
+    margin: 30px 0;
+    font-size: small;
+}
+.login button a{
+    color: #363759;
+    margin: 30px 0;
+    font-size: small;
+    font-weight: 600;
+}
+.login form .erro{
+    color: #F29441;
+    font-size: medium;
+}
+
+
+/* ==== CREATE USUÁRIO ==== */
+.createUsuario{
+    margin: 20px 0;
+}
+.createUsuario .tituloinput h5{
+    font-weight: 500;
+    color: #363759;
     margin-bottom: 20px;
 }
-.createProduto .input-field input[type=text]:focus + label {
+body .createUsuario form div{
+    margin-bottom: 20px;
+}
+.createUsuario .input-field label {
+    color: #363759;
+}
+.createUsuario .input-field .material-icons {
+    color: #363759;
+}
+.createUsuario .input-field input[type=text]:focus + label {
+    color: #363759;
+}
+.createUsuario .input-field input[type=email]:focus + label {
+    color: #363759;
+}
+.createUsuario .input-field input[type=password]:focus + label {
+    color: #363759;
+}
+.createUsuario .input-field input[type=text]:focus {
+    border-bottom: 2px solid #F29441;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createUsuario .input-field input[type=email]:focus {
+    border-bottom: 2px solid #F29441;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createUsuario .input-field input[type=password]:focus {
+    border-bottom: 2px solid #F29441;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createUsuario .input-field input[type=text].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createUsuario .input-field input[type=email].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createUsuario .input-field input[type=password].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createUsuario .input-field .prefix.active {
+    color: #F29441;
+}
+.createUsuario .btn{
+    background-color: #ADC5D9;
+}
+.createUsuario button[type=submit]{
+    color: #363759;
+}
+.createUsuario .botaousuarios a i{
+    color: #363759;
+}.createUsuario .botaousuarios a{
+    color: #363759;
+    font-size: small;
+}
+.createUsuario form .erro{
+    color: #F29441;
+    font-size: medium;
+}
+
+
+/* ==== CADASTRO USUARIO SUCESSO ==== */
+.usuarioOK{
+    height: 500px;
+    background-image: url(../img/fada.png);
+    background-repeat: no-repeat;
+    background-size: 400px;
+}
+.usuarioOK h6{
+    font-size: 1.8rem;
+    font-weight: lighter;
+    color: #363759;
+    margin-top: 150px;
+}
+.usuarioOK a{
+    font-size: 1.4rem;
+    font-weight: lighter;
+    color: #F29441;
+}
+/* === USUÁRIOS === */
+.usuarios table{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.usuarios .tituloinput h5{
+    font-weight: 500;
+    color: #363759;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.usuarios table tr{
+    border: none;
+}
+.usuarios table th{
+    background-color: #363759;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding-left: 15px;
+    line-height: 10px;
+}
+.usuarios table tr:hover{
+    background-color: #F2D9BB;
+}
+.usuarios .tablevalue{
+    font-size: 1.1rem;
+    color: #424242;
+    padding-left: 15px;
+}
+.usuarios td{
+    line-height: 15px;
+}
+.usuarios td img{
+    width: 50px;
+}
+.usuarios .tablevalue:first-child{
+    font-size: 1.2rem;
     color: #212121;
-    font-size: 1.3rem;
+}
+.usuarios .botaodeletar{
+    background-color: #363759;
+    position: relative;
+    bottom: 2px;
+}
+.usuarios .botaodeletar i{
+    color: #F2D9BB;
+}
+.usuarios .botaoeditar{
+    background-color: #F2D9BB;
+    position: relative;
+    bottom: 2px;
+}
+.usuarios .botaoeditar i{
+    color: #363759;
+}
+
+
+/* ==== EDITAR USUARIO ==== */
+.editUsuario{
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    position: relative;
+    left: 150px;
+}
+.editUsuario .card-stacked{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.editUsuario .card-stacked img{
+    width: 200px;
+}
+.editUsuario .card-content{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.editUsuario .card-image img{
+    width: 100% !important;
+}
+.editUsuario .input-field input[type=text]:focus + label {
+    color: #363759;
+}
+.editUsuario .input-field input[type=email]:focus + label {
+    color: #363759;
+}
+.editUsuario .input-field input[type=text]:focus {
+    border-bottom: 1px solid #363759;
+    box-shadow: 0 1px 1px 0 rgb(235, 235, 235);
+}
+.editUsuario .input-field input[type=email]:focus {
+border-bottom: 1px solid #363759;
+box-shadow: 0 1px 1px 0 rgb(235, 235, 235);
+}
+.editUsuario .input-field input[type=text].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 1px 0 rgb(235, 235, 235);
+}
+.editUsuario .input-field input[type=email].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 1px 0 rgb(235, 235, 235);
+}
+.editUsuario .file-field .btn{
+    background-color: #363759;
+}
+.editUsuario .file-field .btn span{
+    font-size: small;
+}
+.editUsuario .card-action{
+    border: none;
+    width: 100%;
+    text-align: center;
+}
+.editUsuario .card-action button{
+    background-color: #363759;
+}
+
+
+
+/* ==== CREATE PRODUTO ==== */
+.createProduto{
+    margin: 20px 0;
+    line-height: 5rem;
+}
+.createProduto .tituloinput h5{
+    font-weight: 500;
+    color: #363759;
+    margin-bottom: 20px;
+}
+.createProduto .tituloinput p{
+    font-weight: lighter;
+    font-size: medium;
+    color: #363759;
+    margin-bottom: 20px;
+}
+body .createProduto form div{
+    margin-bottom: 20px;
+}
+.createProduto .input-field label {
+    color: #ADC5D9;
+}
+.createProduto .input-field .material-icons {
+    color: #ADC5D9;
+}
+.createProduto .file-field .material-icons {
+    color: #363759;
+}
+.createProduto .input-field input[type=text]:focus + label {
+    color: #ADC5D9;
+}
+.createProduto .input-field input[type=email]:focus + label {
+    color: #ADC5D9;
+}
+.createProduto .input-field input[type=password]:focus + label {
+    color: #ADC5D9;
 }
 .createProduto .input-field input[type=text]:focus {
-    border-bottom: 1px solid #212121;
-    box-shadow: 0 1px 1px 0 #cfd8dc;
+    border-bottom: 2px solid #F29441;
+    box-shadow: 0 1px 0 0 #fafafa;
 }
-.createProduto .input-field input[type=number]:focus + label {
-    color: #212121;
-    font-size: 1.3rem;
+.createProduto .input-field input[type=email]:focus {
+    border-bottom: 2px solid #F29441;
+    box-shadow: 0 1px 0 0 #fafafa;
 }
-.createProduto .input-field input[type=number]:focus {
-    border-bottom: 1px solid #212121;
-    box-shadow: 0 1px 1px 0 #cfd8dc;
-}
-.createProduto .input-field input[type=number].valid {
-    border-bottom: 1px solid #F2D9BB;
-    box-shadow: 0 1px 1px 0 #cfd8dc;
-}
-.createProduto .input-field input[type=number].invalid {
-border-bottom: 2px solid #D9763D;
-box-shadow: 0 1px 1px 0 #cfd8dc;
-}
-.createProduto .file-field .btn{
-    background-color: #F2D9BB;
+.createProduto .input-field input[type=password]:focus {
+    border-bottom: 2px solid #F29441;
+    box-shadow: 0 1px 0 0 #fafafa;
 }
 .createProduto .input-field input[type=text].valid {
-    border-bottom: 1px solid #F2D9BB;
-    box-shadow: 0 1px 1px 0 #cfd8dc;
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 0 0 #fafafa;
 }
-.createProduto .input-field input[type=text].invalid {
-border-bottom: 2px solid #D9763D;
-box-shadow: 0 1px 1px 0 #cfd8dc;
+.createProduto .input-field input[type=email].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 0 0 #fafafa;
 }
-.createProduto .botaoenviar{
-    background-color: #F2D9BB;
-    color: #616161 ;
-    align-self: center;
+.createProduto .input-field input[type=password].valid {
+    border-bottom: 1px solid #ADC5D9;
+    box-shadow: 0 1px 0 0 #fafafa;
+}
+.createProduto .input-field .prefix.active {
+    color: #F29441;
+}
+.createProduto .btn{
+    background-color: #ADC5D9;
+}
+.createProduto button[type=submit]{
+    color: #363759;
+}
+.createProduto .p-campo-obrg p{
+    font-size: 1rem;
+    color: #363759;
+}
+.createProduto form .erro{
+    color: #F29441;
+    font-size: medium;
+}
+
+
+
+/* ==== PRODUTOS ==== */
+.listaProdutos{
+    margin: 20px 0;
+    line-height: 4rem;
+}
+.listaProdutos .tituloinput h5{
+    font-weight: 500;
+    color: #363759;
+    margin-bottom: 20px;
+}
+.listaProdutos .tituloinput p{
+    font-weight: lighter;
+    font-size: medium;
+    color: #363759;
+    margin-bottom: 20px;
+}
+.listaProdutos table tr{
+    border: none;
+}
+.listaProdutos table th{
+    background-color: #363759;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding-left: 15px;
+}
+.listaProdutos table tr:hover{
+    background-color: #fbe9e7;
+}
+.listaProdutos .tablevalue{
+    font-size: 1.2rem;
+    color: #424242;
+    padding-left: 15px;
+    height: 10px;
+}
+.listaProdutos .tablevalue:first-child{
+    font-size: 1.2rem;
+    color: #212121;
+}
+.listaProdutos .botaomais{
+    background-color: #ADC5D9;
+    color: #363759;
+    position: relative;
+    bottom: 2px;
+}
+.listaProdutos .botaomais i{
+    color: #363759;
+}
+
+
+/* ==== SHOW PRODUTO ==== */
+.showProduto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.showProduto .card{
+    padding: 20px;
+    margin-top: 30px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.showProduto .card .logoreceita{
+    width: 30%;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    margin-bottom: 20px;
+}
+.showProduto .card .card-title{
+    margin-bottom: 20px;
+    color: #363759;
+    font-size: 1.4rem;
+}
+.showProduto .card .card-content p{
+    margin-bottom: 20px;
+    color: #424242;
+    font-size: 1.2rem;
+}
+.showProduto .card .card-image{
+    margin-bottom: 30px;
+    width: 90%;
+}
+.showProduto .card .card-action{
+    border: none;
+}
+.showProduto .card .card-action a{
+    background-color: #363759;
+}
+.showProduto .card .card-action a:first-child{
+    margin-right: 100px;
+}
+
+
+
+
+/* ==== CADASTRO PRODUTO SUCESSO ==== */
+.produtoOK{
+    height: 500px;
+    background-image: url(../img/novodoce.png);
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-position: right;
+}
+.produtoOK h6{
+    font-size: 1.8rem;
+    font-weight: lighter;
+    color: #363759;
+    margin-top: 150px;
+    text-align: left;
+}
+.produtoOK a{
+    font-size: 1.4rem;
+    font-weight: lighter;
+    color: #F29441;
+    text-align: left;
+}
+
+
+
+/* ==== EDITAR PRODUTO ==== */
+.editProduto .card{
+    width: 90%;
+    margin: 30px 0;
+}
+.editProduto .card .logoreceita{
+    width: 30%;
     margin-top: 20px;
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+.editProduto .card-content{
+    margin: 0;
+    padding: 0 20px;
+}
+.editProduto .card-content .input-field input[type=text]:focus + label {
+    color: #363759;
+}
+.editProduto .card-content .input-field input[type=text]:focus {
+    border-bottom: 1px solid #363759;
+    box-shadow: 0 1px 0 0 rgb(226, 226, 226);
+}
+.editProduto .card-content .file-path-wrapper input[type=text]:focus {
+    border-bottom: 1px solid #363759;
+    box-shadow: 0 1px 0 0 rgb(226, 226, 226);
+}
+.editProduto .input-field input[type=text].valid {
+    border-bottom: 1px solid #F29441;
+    box-shadow: 0 1px 0 0 rgb(226, 226, 226);
+}
+.editProduto .card-content .file-path-wrapper input[type=text].valid {
+    border-bottom: 1px solid #F29441;
+    box-shadow: 0 1px 0 0 rgb(226, 226, 226);
+}
+.editProduto .file-field .btn{
+    background-color: #363759;
+}
+.editProduto .file-field .btn span{
+    font-size: small;
+}
+.editProduto .card-image{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 80px;
+    width: 80%;
+}
+.editProduto .card-action{
+    border: none;
+}
+.editProduto .card-action button{
+    background-color: #363759;
+    margin-bottom: 30px;
+    width: 150px;
+}
+
+
+
+/* ==== DELETAR PRODUTO ==== */
+.deleteProduto{
+    background-image: url(../img/deletarproduto.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+    background-position-y: -60px;
+    filter: opacity(80%) grayscale();
+}
+.deleteProduto h6{
+    margin-top: 50px;
+    color: white;
+    font-size: 2rem;
 }

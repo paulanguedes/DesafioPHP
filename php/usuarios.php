@@ -6,13 +6,13 @@ if (!$_SESSION) {
   header('location: index.php');
 }
 
-$id = $_GET['id'];
-$produto = produtoID($id);
+$usuarios = listaUsuarios();
 
-
+if ($_POST) {
+  deleteUsuario($_POST["nome"]);
+}
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,33 +41,45 @@ $produto = produtoID($id);
     </nav>
   </div>
 
-  <section class="showProduto container center">
-  
-      <div class="card col s12">
-        <img class="logoreceita" src="../img/Logo2.png" alt="Logo Fatias de Memória">
-        <div class="card-title">
-          <span class="card-title"> <?= $produto['produto'] ?> </span>
-        </div>
-        <div class="card-content">
-          <p> <?= $produto['descricao'] ?> </p>
-          <p>R$ <?= number_format($produto['preco'], 2, ',', '.') ?> </p>
-        </div>
-        <div class="card-image">
-          <img src=' <?= $produto['foto'] ?> '>
-        </div>
-        <div class="card-action">
-          <a href="editProduto.php?id=<?= $produto['id'] ?>" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">edit</i>editar</a>
-          <a href="deleteProduto.php?id=<?= $produto['id'] ?>"class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">delete</i>deletar</a>
-        </div>
-      </div>
-  
+  <section class="usuarios">
+
+  <div class="tituloinput">
+        <h5 class="center">membros</h5>
+    </div>
+
+  <section class="container center">
+
+    <table>
+      <tr>
+        <th class="tablelable">nome</th>
+        <th class="tablelable">e-mail</th>
+        <th class="tablelable">foto</th>
+        <th class="tablelable center">editar</th>
+        <th class="tablelable center">excluir</th>
+      </tr>
+      <tr>
+        <?php foreach($usuarios as $usuario): ?>
+          <td class="tablevalue"> <?=$usuario['nome']?> </td>
+          <td class="tablevalue"> <?=$usuario['email']?> </td>
+          <td class="tablevalue center"> <img src="<?= $usuario['fotousuario'] ?>"> </td>
+          <td class="tablevalue center"><a href="editUsuario.php?id=<?=$usuario['id']?>" class="botaoeditar btn-floating btn-small waves-effect waves-light"><i class="material-icons">edit</i></a> </td>
+        <form action="#" method="post">
+          <td class="tablevalue center"><button type="hidden" name="nome" value="<?= $usuario['id'] ?>" class="botaodeletar btn-floating btn-small waves-effect waves-light"><i class="material-icons">remove</i></button> </td>
+        </form>
+      </tr>
+        <?php endforeach;?>
+    </table>
+
   </section>
 
   <footer class="page-footer">
+
     <div class="container">
+
       <div class="socialtitle">
         <h5>Siga-nos nas redes sociais</h5>
       </div>
+
       <div class="sociallinks">
         <ul>
           <li><a href="#!">Facebook</a></li>
@@ -76,13 +88,16 @@ $produto = produtoID($id);
           <li><a href="#!">Twitter</a></li>
         </ul>
       </div>
+      
     </div>
+
     <div class="footer-copyright">
       <div class="container">&copy; 2020 Copyright Text</div>
     </div>
+
   </footer>
 
-<script src="../js/jQuery341.js"></script>
+
 <script src="../js/materialize.min.js"></script>
 <script src="../js/index.js"></script>
 </body>
